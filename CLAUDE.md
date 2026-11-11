@@ -38,11 +38,32 @@ proxy when configured): list deployments with
 `GET /v6/deployments?projectId=lawrenceportfoliosmm&limit=5`, then
 `GET /v3/deployments/<id>/events`.
 
+## Brand rules (owner's decisions — follow strictly)
+
+This repository is **public**. Keep private details out of it: no legal names, no other
+businesses or websites of the owner, no client contact names, no internal file paths.
+Those live with the owner, not here.
+
+- Positioning: **animated map videos for travel, hospitality and property brands. Bali.**
+  Also event content (trailers, motion posters, reels).
+- Identity: the site shows **only "Lawrence Nathan"**. Never add another name, and never link
+  to or mention any other business or website.
+- Don't use content from the owner's old Instagram account.
+- The Instagram handle isn't final: keep the Instagram link a placeholder until the owner
+  gives the confirmed handle.
+- Wowtravels: always **12.9K followers** (never 15K).
+- Nuanu Snow Show (July 2025): show the trailer, one digital poster and one speaker reel.
+  Wording: **"Designed and edited for Nuanu Snow Show"**. No result claims.
+  Video previews are placeholders until the owner provides web-ready files.
+- Domain: not purchased yet. Free option is lawrencenathan.vercel.app.
+  Don't buy or change domains without asking.
+- Copy: simple and short.
+
 ## Style notes — current design: "The Edit"
 
-- Concept: the site behaves like a **video editor** (Lawrence is a short-form video editor /
-  clipper, Instagram @twentyoneprojectss). Viewfinder frame, blinking REC light, running
-  timecode, editing timeline with clip blocks and a scroll-driven playhead, waveform, ticker.
+- Concept: the site behaves like a **video editor**. Viewfinder frame, blinking REC light,
+  running timecode, editing timeline with work blocks and a scroll-driven playhead, waveform,
+  ticker, and an animated Bali map demo (route draws on scroll, pins pop, km counter).
 - Bold and creative, not templated. Copy is **simple and short**, not personal/confessional.
 - Dark only. Colors: `--bg` near-black, `--acid` #c6ff3d (main accent), `--rec` red,
   `--blue`, `--pink` for clips.
@@ -51,7 +72,8 @@ proxy when configured): list deployments with
 - Hero name: solid copy behind the photo + outline copy (`.name-ghost`) over it.
   On phones, LAWRENCE sits above the photo and NATHAN below.
 - Reveal animations add `.in` via IntersectionObserver; respect reduced motion.
-- Placeholders: `.ph` mono notes (tools list, email).
+- Placeholders: `.ph` mono notes and `.clip-ph` tags (Instagram link, email, video previews,
+  Wowtravels project details).
 - Must look right at phone width (390px) with no sideways scrolling.
 - Never commit secrets or tokens. The repository is public.
 
