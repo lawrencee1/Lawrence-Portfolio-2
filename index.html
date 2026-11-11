@@ -6,9 +6,46 @@
   <title>Lawrence Nathan — Animated map videos · Bali</title>
   <meta name="description" content="Animated map videos for travel, hospitality and property brands. Based in Bali." />
   <meta name="theme-color" content="#0a0a0b" />
-  <meta property="og:title" content="Lawrence Nathan — Animated map videos" />
-  <meta property="og:description" content="Animated map videos for travel, hospitality and property brands. Bali." />
-  <meta property="og:image" content="/assets/portrait.jpg" />
+  <link rel="canonical" href="https://lawrencenathan.vercel.app/" />
+
+  <!-- Sharing previews (WhatsApp, Instagram, LinkedIn, X) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lawrence Nathan" />
+  <meta property="og:url" content="https://lawrencenathan.vercel.app/" />
+  <meta property="og:title" content="Lawrence Nathan — Animated map videos · Bali" />
+  <meta property="og:description" content="Animated map videos for travel, hospitality and property brands." />
+  <meta property="og:image" content="https://lawrencenathan.vercel.app/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Lawrence Nathan — animated map videos for travel, hospitality and property brands" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lawrence Nathan — Animated map videos · Bali" />
+  <meta name="twitter:description" content="Animated map videos for travel, hospitality and property brands." />
+  <meta name="twitter:image" content="https://lawrencenathan.vercel.app/assets/og-image.jpg" />
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Search engines: who this is and what he does -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Lawrence Nathan",
+    "url": "https://lawrencenathan.vercel.app/",
+    "image": "https://lawrencenathan.vercel.app/assets/og-image.jpg",
+    "description": "Animated map videos for travel, hospitality and property brands. Also event trailers, motion posters and reels.",
+    "areaServed": ["Bali", "Indonesia", "Worldwide"],
+    "address": { "@type": "PostalAddress", "addressRegion": "Bali", "addressCountry": "ID" },
+    "knowsAbout": ["Animated map videos", "Motion graphics", "Video editing", "Event trailers", "Motion posters"],
+    "founder": { "@type": "Person", "name": "Lawrence Nathan", "jobTitle": "Motion designer and video editor" }
+  }
+  </script>
+
+  <link rel="preload" as="image" href="assets/portrait.webp" type="image/webp" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -229,10 +266,52 @@
         <span>map.</span>
       </h2>
       <p class="cta-sub">DM for a quote.</p>
-      <div class="actions">
-        <a href="#" class="btn btn-solid btn-big">Instagram ↗</a>
-        <a href="mailto:hello@example.com" class="btn btn-line btn-big">hello@example.com</a>
-      </div>
+
+      <form class="quote" id="quote" autocomplete="off">
+        <p class="mono quote-head"><span class="rec"><i></i></span> Quick brief — fill it in, copy it, send it as a DM</p>
+        <div class="q-grid">
+          <label>
+            <span class="mono">We are</span>
+            <select name="type">
+              <option value="a travel brand">A travel brand</option>
+              <option value="a hotel or villa">A hotel or villa</option>
+              <option value="a restaurant or beach club">A restaurant or beach club</option>
+              <option value="a property developer or agency">A property developer or agency</option>
+              <option value="an event organizer">An event organizer</option>
+              <option value="another kind of business">Something else</option>
+            </select>
+          </label>
+          <label>
+            <span class="mono">Place / location</span>
+            <input name="place" placeholder="e.g. Canggu, Bali" />
+          </label>
+          <label>
+            <span class="mono">We need</span>
+            <select name="need">
+              <option value="an animated map video">An animated map video</option>
+              <option value="a trailer">A trailer</option>
+              <option value="a motion poster">A motion poster</option>
+              <option value="reels or stories">Reels or stories</option>
+              <option value="help choosing the right video">Not sure yet</option>
+            </select>
+          </label>
+          <label>
+            <span class="mono">When</span>
+            <select name="when">
+              <option value="as soon as possible">As soon as possible</option>
+              <option value="within 2 weeks">Within 2 weeks</option>
+              <option value="within a month">Within a month</option>
+              <option value="no rush, just exploring">Just exploring</option>
+            </select>
+          </label>
+        </div>
+        <output class="q-preview" id="q-preview" aria-live="polite"></output>
+        <div class="actions">
+          <button type="button" class="btn btn-solid btn-big" id="q-copy">Copy my brief</button>
+          <a href="#" class="btn btn-line btn-big" id="q-ig">Open Instagram ↗</a>
+          <a href="mailto:hello@example.com" class="btn btn-line btn-big" id="q-mail">Email instead</a>
+        </div>
+      </form>
       <p class="ph mono">[placeholder] Instagram link and email — waiting for the final handle and address</p>
     </section>
   </main>
@@ -319,6 +398,32 @@
     addEventListener('scroll', onScroll, { passive: true });
     addEventListener('resize', onScroll);
     onScroll();
+
+    // Quote brief: build a message people can paste into a DM or email
+    const form = document.getElementById('quote');
+    const preview = document.getElementById('q-preview');
+    const copyBtn = document.getElementById('q-copy');
+    const mail = document.getElementById('q-mail');
+    const mailBase = mail.getAttribute('href');
+    function brief() {
+      const f = new FormData(form);
+      const place = (f.get('place') || '').trim();
+      return `Hi Lawrence! We're ${f.get('type')}${place ? ' in ' + place : ''}. ` +
+             `We need ${f.get('need')}, ${f.get('when')}. Could you send us a quote?`;
+    }
+    function updateBrief() {
+      const msg = brief();
+      preview.textContent = '“' + msg + '”';
+      mail.setAttribute('href', `${mailBase}?subject=${encodeURIComponent('Quote request')}&body=${encodeURIComponent(msg)}`);
+    }
+    form.addEventListener('input', updateBrief);
+    form.addEventListener('submit', e => e.preventDefault());
+    updateBrief();
+    copyBtn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(brief()); copyBtn.textContent = 'Copied ✓ paste it in a DM'; }
+      catch { copyBtn.textContent = 'Select the text above to copy'; }
+      setTimeout(() => (copyBtn.textContent = 'Copy my brief'), 3000);
+    });
 
     // Hero parallax
     const vf = document.querySelector('.viewfinder');

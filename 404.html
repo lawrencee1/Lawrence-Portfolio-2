@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Off the map — Lawrence Nathan</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .lost { min-height: 100svh; display: grid; place-content: center; gap: 22px; padding: 40px 20px; text-align: center; }
+    .lost .code { font-family: var(--display); font-size: clamp(7rem, 30vw, 18rem); line-height: .85; color: transparent; -webkit-text-stroke: 2px var(--text); position: relative; }
+    .lost .code b { position: absolute; left: 50%; top: 46%; width: 22px; height: 22px; border-radius: 50%; background: var(--rec); box-shadow: 0 0 0 10px rgba(255,59,48,.18), 0 0 24px var(--rec); transform: translate(-50%, -50%); animation: blink 1.2s steps(2) infinite; }
+    .lost p { color: var(--dim); font-size: 1.2rem; }
+    .lost .actions { justify-content: center; }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <main class="lost">
+    <p class="mono" style="color: var(--rec)">● SIGNAL LOST · 00:00:04:04</p>
+    <div class="code" aria-label="404">404<b></b></div>
+    <h1 style="font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 6vw, 3.6rem); text-transform: uppercase;">You're off the map.</h1>
+    <p>This page doesn't exist. Let's get you back on the route.</p>
+    <div class="actions"><a class="btn btn-solid" href="/">Back to start ↺</a></div>
+  </main>
+</body>
+</html>

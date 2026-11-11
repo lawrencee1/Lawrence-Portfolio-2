@@ -1,10 +1,14 @@
 # Lawrence Portfolio — working rules for Claude
 
-Static one-page portfolio (`index.html` + `styles.css`, no build step).
+Static one-page portfolio (`index.html` + `styles.css`, no build step). Also: `404.html`,
+`robots.txt`, `sitemap.xml`, `site.webmanifest`, icons, `assets/og-image.jpg` (1200x630
+sharing preview), and `vercel.json` (caching + security headers). The contact section has a
+"quick brief" helper that builds a quote message to paste into a DM or email.
 Deployed by Vercel (account: lawrenceenathan-1429s-projects, project: `lawrenceportfoliosmm`)
 on every push to `main`.
 
-- Live site: https://lawrenceportfoliosmm.vercel.app
+- Public address: https://lawrencenathan.vercel.app (canonical, used in meta tags, sitemap)
+- Original project address (still works): https://lawrenceportfoliosmm.vercel.app
 - GitHub: https://github.com/lawrencee1/Lawrence-Portfolio-2
 
 ## Autonomy (the owner's standing instruction)

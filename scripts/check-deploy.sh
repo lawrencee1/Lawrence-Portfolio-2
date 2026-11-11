@@ -4,7 +4,11 @@
 set -uo pipefail
 
 REPO="lawrencee1/Lawrence-Portfolio-2"
-LIVE="https://lawrenceportfoliosmm.vercel.app"
+# Prefer the public address; fall back to the original project address until it's set up.
+LIVE="https://lawrencenathan.vercel.app"
+if [ "$(curl -s -o /dev/null -w '%{http_code}' "$LIVE")" != "200" ]; then
+  LIVE="https://lawrenceportfoliosmm.vercel.app"
+fi
 OUT="/tmp/deploy-check"
 SHA=$(git rev-parse HEAD)
 mkdir -p "$OUT"
