@@ -40,7 +40,13 @@ proxy when configured): list deployments with
 
 ## Style notes
 
-- Fonts: Fraunces (headings) + Inter (body). Warm off-white background, orange accent.
-- Automatic dark mode via `prefers-color-scheme`.
+- Concept: **"a letter, not a résumé"** — personal, vulnerable, first-person. Ruled notebook
+  paper with a red margin line, handwritten red-pen notes, highlighter marks, strike-throughs,
+  taped polaroids. Avoid anything that looks like a generic template.
+- Fonts: Instrument Serif (headings), Newsreader (body), Caveat (handwriting).
+- Colors: paper `--paper`, ink `--ink`, red pen `--pen`, blue pen `--pen-blue`, highlighter `--hl`.
+- Automatic dark mode ("night journal") via `prefers-color-scheme`.
+- Reveal animations use `.in` added by an IntersectionObserver; respect reduced motion.
+- Placeholder copy is shown in italic grey (`.ph`) or with a red `[placeholder]` note.
 - Must look right at phone width (390px) with no sideways scrolling.
 - Never commit secrets or tokens. The repository is public.
