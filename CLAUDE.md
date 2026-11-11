@@ -38,15 +38,26 @@ proxy when configured): list deployments with
 `GET /v6/deployments?projectId=lawrenceportfoliosmm&limit=5`, then
 `GET /v3/deployments/<id>/events`.
 
-## Style notes
+## Style notes — current design: "The Edit"
 
-- Concept: **"a letter, not a résumé"** — personal, vulnerable, first-person. Ruled notebook
-  paper with a red margin line, handwritten red-pen notes, highlighter marks, strike-throughs,
-  taped polaroids. Avoid anything that looks like a generic template.
-- Fonts: Instrument Serif (headings), Newsreader (body), Caveat (handwriting).
-- Colors: paper `--paper`, ink `--ink`, red pen `--pen`, blue pen `--pen-blue`, highlighter `--hl`.
-- Automatic dark mode ("night journal") via `prefers-color-scheme`.
-- Reveal animations use `.in` added by an IntersectionObserver; respect reduced motion.
-- Placeholder copy is shown in italic grey (`.ph`) or with a red `[placeholder]` note.
+- Concept: the site behaves like a **video editor** (Lawrence is a short-form video editor /
+  clipper, Instagram @twentyoneprojectss). Viewfinder frame, blinking REC light, running
+  timecode, editing timeline with clip blocks and a scroll-driven playhead, waveform, ticker.
+- Bold and creative, not templated. Copy is **simple and short**, not personal/confessional.
+- Dark only. Colors: `--bg` near-black, `--acid` #c6ff3d (main accent), `--rec` red,
+  `--blue`, `--pink` for clips.
+- Fonts: Anton (display), Space Grotesk (body), JetBrains Mono (HUD/labels).
+- Photos in `assets/` (portrait, waterfall, laugh) as .webp + .jpg fallback.
+- Hero name: solid copy behind the photo + outline copy (`.name-ghost`) over it.
+  On phones, LAWRENCE sits above the photo and NATHAN below.
+- Reveal animations add `.in` via IntersectionObserver; respect reduced motion.
+- Placeholders: `.ph` mono notes (tools list, email).
 - Must look right at phone width (390px) with no sideways scrolling.
 - Never commit secrets or tokens. The repository is public.
+
+## Earlier designs (restore points)
+
+The owner may ask to go back. Restore a design with
+`git checkout <commit> -- index.html styles.css` then commit and push.
+- Design 1 "simple portfolio": commit `ff50591`
+- Design 2 "notebook letter": commit `4bfa360`

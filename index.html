@@ -3,183 +3,285 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lawrence Nathan — a letter, not a résumé</title>
-  <meta name="description" content="Hi, I'm Lawrence. This is my corner of the internet — the work, the doubts, and the stuff in between." />
+  <title>Lawrence Nathan — Video Editor</title>
+  <meta name="description" content="Lawrence Nathan edits short-form video. Clips, captions, hooks — made to be watched." />
+  <meta name="theme-color" content="#0a0a0b" />
+  <meta property="og:title" content="Lawrence Nathan — Video Editor" />
+  <meta property="og:description" content="Clips, captions, hooks — made to be watched." />
+  <meta property="og:image" content="/assets/portrait.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="paper">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
 
-    <header class="top">
-      <p class="hand stamp">lawrence's corner of the internet</p>
-      <nav aria-label="Sections">
-        <a href="#honest">the honest list</a>
-        <a href="#work">notebook</a>
-        <a href="#now">lately</a>
-        <a href="#letter" class="hand write-back">write me back →</a>
-      </nav>
-    </header>
+  <!-- ============ HUD BAR ============ -->
+  <header class="hud">
+    <a href="#top" class="hud-logo">LN<span>.edit</span></a>
+    <div class="hud-mid mono">
+      <span class="rec"><i></i>REC</span>
+      <span class="hide-sm">4K · 60FPS</span>
+      <span id="tc">00:00:00:00</span>
+    </div>
+    <nav class="mono">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="hud-cta">Contact</a>
+    </nav>
+  </header>
 
-    <main>
-      <!-- OPENING -->
-      <section class="opening" id="top">
-        <p class="meta">written from <span class="ph">[your city]</span>, late at night</p>
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <figure class="viewfinder">
+        <picture>
+          <source srcset="assets/portrait.webp" type="image/webp" />
+          <img src="assets/portrait.jpg" alt="Lawrence Nathan smiling, wearing a black batik shirt" width="1100" height="1650" />
+        </picture>
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <span class="focus" aria-hidden="true"></span>
+        <figcaption class="mono">CAM A · LAWRENCE_FINAL_v21.mp4</figcaption>
+      </figure>
 
-        <h1>Hi. I'm Lawrence.</h1>
+      <h1 class="name" aria-label="Lawrence Nathan">
+        <span class="l1" data-text="LAWRENCE">LAWRENCE</span>
+        <span class="l2" data-text="NATHAN">NATHAN</span>
+      </h1>
+      <div class="name name-ghost" aria-hidden="true">
+        <span class="l1">LAWRENCE</span>
+        <span class="l2">NATHAN</span>
+      </div>
 
-        <p class="intro">
-          I'm a
-          <del>social media manager</del>
-          <del>content creator</del>
-          <del>marketer</del>
-          <span class="hand admit">honestly, I'm still figuring out the word for it.</span>
-        </p>
+      <div class="hero-copy">
+        <p class="role mono"><span class="dot"></span> Video editor · Content creator</p>
+        <p class="pitch">I cut long videos into short clips <span class="hl">people actually watch.</span></p>
+        <div class="actions">
+          <a href="#work" class="btn btn-solid">See my work ↓</a>
+          <a href="https://www.instagram.com/twentyoneprojectss/" target="_blank" rel="noopener" class="btn btn-line">Instagram ↗</a>
+        </div>
+      </div>
+    </section>
 
-        <p class="big">
-          What I <em>do</em> know: I love making people
-          <mark>stop scrolling for one second</mark>
-          and actually <em>feel</em> something.
-        </p>
+    <!-- ============ TICKER ============ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>CLIP</span><b>✦</b><span class="out">CUT</span><b>✦</b><span>CAPTION</span><b>✦</b><span class="out">POST</span><b>✦</b><span>REPEAT</span><b>✦</b>
+        <span>CLIP</span><b>✦</b><span class="out">CUT</span><b>✦</b><span>CAPTION</span><b>✦</b><span class="out">POST</span><b>✦</b><span>REPEAT</span><b>✦</b>
+      </div>
+    </div>
 
-        <aside class="margin-note n1" aria-hidden="true">
-          <svg viewBox="0 0 80 50" class="arrow"><path d="M75 8 C 50 2, 20 10, 8 40 M8 40 L 4 28 M8 40 L 19 34" /></svg>
-          rewrote this line 14 times
-        </aside>
-      </section>
+    <!-- ============ STATS ============ -->
+    <section class="stats">
+      <div class="stat"><span class="num" data-count="21">0</span><span class="mono lbl">clips posted</span></div>
+      <div class="stat"><span class="num" data-count="1160">0</span><span class="mono lbl">followers</span></div>
+      <div class="stat"><span class="num" data-count="3">0</span><span class="mono lbl">creators clipped</span></div>
+      <div class="stat"><span class="num">3s</span><span class="mono lbl">to hook you</span></div>
+    </section>
 
-      <!-- WHY THIS PAGE -->
-      <section class="why">
-        <p>
-          This isn't a résumé. Résumés are where we pretend we had it all planned.
-          This is the version with the <mark>wobbly parts left in</mark> — the work I'm proud of,
-          the stuff I'm still bad at, and what's on my mind lately.
-        </p>
-        <p class="draft-tag hand">✎ draft copy — Lawrence, make these words yours</p>
-      </section>
+    <!-- ============ WORK / TIMELINE ============ -->
+    <section id="work" class="work">
+      <div class="sec-head">
+        <p class="mono kicker">01 — The timeline</p>
+        <h2>Latest <span class="stroke">cuts</span></h2>
+      </div>
 
-      <!-- HONEST LIST -->
-      <section id="honest" class="honest">
-        <h2>The honest list</h2>
-        <p class="sub">Things I'm not great at <span class="hand">(yet)</span></p>
+      <div class="timeline" id="timeline">
+        <div class="ruler mono" aria-hidden="true">
+          <span>00:00</span><span>00:15</span><span>00:30</span><span>00:45</span><span>01:00</span>
+        </div>
+        <div class="playhead" aria-hidden="true"><span class="mono" id="ph-tc">00:00</span></div>
 
-        <ol class="list">
-          <li><span class="box" aria-hidden="true"></span><span class="item">Saying no to projects I already know will drain me.</span></li>
-          <li><span class="box" aria-hidden="true"></span><span class="item">Replying to messages on time. <span class="hand aside">sorry if you're one of them.</span></span></li>
-          <li><span class="box" aria-hidden="true"></span><span class="item">Believing something is good enough <em>before</em> I post it.</span></li>
-          <li><span class="box checked" aria-hidden="true"></span><span class="item"><s>Asking for help.</s> <span class="hand aside">working on it — this page is proof.</span></span></li>
-          <li><span class="box" aria-hidden="true"></span><span class="item">Not comparing my chapter 3 to someone else's chapter 20.</span></li>
-        </ol>
-      </section>
-
-      <!-- WORK / NOTEBOOK -->
-      <section id="work" class="work">
-        <h2>Pages from my notebook</h2>
-        <p class="sub">Some work I'm proud of — and what each one taught me.</p>
-
-        <div class="polaroids">
-          <article class="polaroid p1">
-            <div class="photo ph-a"><span class="hand">photo coming soon</span></div>
-            <p class="caption hand">[Project one] · 2026</p>
-            <div class="story">
-              <p><strong>What it was:</strong> <span class="ph">[One line — e.g. "A month of reels for a small café that was about to close."]</span></p>
-              <p><strong>What I learned:</strong> <span class="ph">[The honest lesson — what went wrong, what surprised you.]</span></p>
-            </div>
-          </article>
-
-          <article class="polaroid p2">
-            <div class="photo ph-b"><span class="hand">photo coming soon</span></div>
-            <p class="caption hand">[Project two] · 2025</p>
-            <div class="story">
-              <p><strong>What it was:</strong> <span class="ph">[One line about the project.]</span></p>
-              <p><strong>What I learned:</strong> <span class="ph">[The lesson.]</span></p>
-            </div>
-          </article>
-
-          <article class="polaroid p3">
-            <div class="photo ph-c"><span class="hand">photo coming soon</span></div>
-            <p class="caption hand">[Project three] · 2025</p>
-            <div class="story">
-              <p><strong>What it was:</strong> <span class="ph">[One line about the project.]</span></p>
-              <p><strong>What I learned:</strong> <span class="ph">[The lesson.]</span></p>
-            </div>
-          </article>
+        <div class="track">
+          <span class="track-label mono">V1</span>
+          <div class="clips">
+            <a class="clip c1" href="https://www.instagram.com/twentyoneprojectss/" target="_blank" rel="noopener">
+              <span class="clip-tag mono">REEL · 0:58</span>
+              <span class="clip-title"><em>Jake Paul</em> better than David Dobrik's vlog?</span>
+            </a>
+            <a class="clip c2" href="https://www.instagram.com/twentyoneprojectss/" target="_blank" rel="noopener">
+              <span class="clip-tag mono">REEL · 0:42</span>
+              <span class="clip-title">Testing how famous <em>Jasontheween</em> is</span>
+            </a>
+          </div>
         </div>
 
-        <p class="also">
-          The things I end up doing most:
-          <span class="scribble">social content</span>,
-          <span class="scribble">short video</span>,
-          <span class="scribble">brand voice</span>,
-          <span class="scribble">photography</span>, and
-          <span class="scribble">figuring out what people actually care about</span>.
-        </p>
-      </section>
+        <div class="track">
+          <span class="track-label mono">V2</span>
+          <div class="clips">
+            <a class="clip c3" href="https://www.instagram.com/twentyoneprojectss/" target="_blank" rel="noopener">
+              <span class="clip-tag mono">REEL · 0:51</span>
+              <span class="clip-title"><em>Jasontheween</em> reveals how much <b class="money">$$$</b> he makes</span>
+            </a>
+            <div class="clip c4 next">
+              <span class="clip-tag mono">NEXT · 0:00</span>
+              <span class="clip-title">Your video could go here.</span>
+            </div>
+          </div>
+        </div>
 
-      <!-- LATELY -->
-      <section id="now" class="now">
-        <h2>Lately</h2>
-        <dl class="lately">
-          <div><dt>learning</dt><dd><span class="ph">[e.g. how to edit video that doesn't feel like an ad]</span></dd></div>
-          <div><dt>listening to</dt><dd><span class="ph">[an album or podcast on repeat]</span></dd></div>
-          <div><dt>worried about</dt><dd><span class="ph">[something real — it's okay]</span></dd></div>
-          <div><dt>grateful for</dt><dd><span class="ph">[a person, a place, a small thing]</span></dd></div>
-        </dl>
-        <p class="hand stamp-date">last updated <span id="updated">this month</span></p>
-      </section>
+        <div class="track audio" aria-hidden="true">
+          <span class="track-label mono">A1</span>
+          <div class="wave" id="wave"></div>
+        </div>
+      </div>
 
-      <!-- CLOSING LETTER -->
-      <section id="letter" class="letter">
-        <p class="hand to">If you've read this far —</p>
-        <p class="big">
-          thank you. Really. Most people don't.
-        </p>
-        <p>
-          If something here made you think <em>"I'd like to make something with this person,"</em>
-          or you just want to say hi, I'd genuinely love to hear from you.
-          I read everything — I just might take a day to reply <span class="hand aside">(see: honest list, #2)</span>.
-        </p>
+      <p class="work-note mono">↳ 21 clips and counting on <a href="https://www.instagram.com/twentyoneprojectss/" target="_blank" rel="noopener">@twentyoneprojectss</a></p>
+    </section>
 
-        <a class="send" href="mailto:hello@example.com">
-          <span class="stamp-box" aria-hidden="true">✉</span>
-          <span>
-            <span class="hand label">write me back</span>
-            <span class="addr">hello@example.com <span class="ph-note">[placeholder]</span></span>
-          </span>
-        </a>
+    <!-- ============ SERVICES ============ -->
+    <section class="services">
+      <div class="sec-head">
+        <p class="mono kicker">02 — What I do</p>
+        <h2>Short. <span class="stroke">Sharp.</span> Watched.</h2>
+      </div>
+      <ol class="svc">
+        <li><span class="mono n">01</span><h3>Clipping</h3><p>I find the best moments in long videos and podcasts.</p></li>
+        <li><span class="mono n">02</span><h3>Editing</h3><p>Fast cuts, zooms, sound effects and pacing that keeps people watching.</p></li>
+        <li><span class="mono n">03</span><h3>Captions</h3><p>Bold, readable subtitles that work with the sound off.</p></li>
+        <li><span class="mono n">04</span><h3>Hooks</h3><p>Strong first seconds and titles that stop the scroll.</p></li>
+      </ol>
+    </section>
 
-        <p class="elsewhere">
-          or find me on
-          <a href="#">Instagram</a> ·
-          <a href="#">LinkedIn</a> ·
-          <a href="#">TikTok</a>
-          <span class="ph-note">[add real links]</span>
-        </p>
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="about">
+      <figure class="about-photo">
+        <picture>
+          <source srcset="assets/waterfall.webp" type="image/webp" />
+          <img src="assets/waterfall.jpg" alt="Lawrence standing in water in front of a waterfall, on a phone call" width="1300" height="1733" />
+        </picture>
+        <figcaption class="mono">B-ROLL · OUTSIDE.mov</figcaption>
+      </figure>
+      <div class="about-copy">
+        <p class="mono kicker">03 — About</p>
+        <h2>Hi, I'm <span class="stroke">Lawrence.</span></h2>
+        <p class="big">I edit short videos for Instagram, TikTok and YouTube Shorts.</p>
+        <p>My first project: clipping my favorite YouTubers. It's still my favorite way to learn what makes people stop, watch and share.</p>
+        <ul class="tools mono">
+          <li>CapCut</li><li>Premiere Pro</li><li>DaVinci Resolve</li><li>After Effects</li>
+        </ul>
+        <p class="ph mono">[placeholder] tools list — edit to match what you really use</p>
+      </div>
+    </section>
 
-        <p class="signoff hand">— Lawrence</p>
-      </section>
-    </main>
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="contact">
+      <div class="sticker" aria-hidden="true">
+        <picture>
+          <source srcset="assets/laugh.webp" type="image/webp" />
+          <img src="assets/laugh.jpg" alt="" loading="lazy" width="800" height="802" />
+        </picture>
+        <span class="sticker-tag">that's a wrap!</span>
+      </div>
 
-    <footer class="foot">
-      <p>made by hand, mostly at 2am, with too much coffee.</p>
-      <a href="#top">back to the top ↑</a>
-    </footer>
-  </div>
+      <p class="mono kicker">04 — Contact</p>
+      <h2 class="cta-title">
+        <span>Let's make</span>
+        <span class="stroke">something</span>
+        <span>people watch.</span>
+      </h2>
+      <div class="actions">
+        <a href="https://www.instagram.com/twentyoneprojectss/" target="_blank" rel="noopener" class="btn btn-solid btn-big">DM me on Instagram ↗</a>
+        <a href="mailto:hello@example.com" class="btn btn-line btn-big">hello@example.com</a>
+      </div>
+      <p class="ph mono">[placeholder] email — send me your real one</p>
+    </section>
+  </main>
+
+  <footer class="foot mono">
+    <span>© <span id="yr">2026</span> Lawrence Nathan</span>
+    <span class="end">— END OF TIMELINE —</span>
+    <a href="#top">Rewind ↺</a>
+  </footer>
 
   <script>
-    // "last updated" month
-    document.getElementById('updated').textContent =
-      new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }).toLowerCase();
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // Reveal marks, strike-throughs and notes as they scroll into view
-    const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.4 }) : null;
-    document.querySelectorAll('mark, del, .margin-note, .polaroid, .list li, .scribble').forEach(el => {
-      io ? io.observe(el) : el.classList.add('in');
-    });
+    // Running timecode (HH:MM:SS:FF @ 30fps)
+    const tc = document.getElementById('tc');
+    const t0 = performance.now();
+    const pad = n => String(n).padStart(2, '0');
+    (function tick(now) {
+      const f = Math.floor((now - t0) / (1000 / 30));
+      tc.textContent = `${pad(Math.floor(f / 108000))}:${pad(Math.floor(f / 1800) % 60)}:${pad(Math.floor(f / 30) % 60)}:${pad(f % 30)}`;
+      requestAnimationFrame(tick);
+    })(t0);
+
+    // Audio waveform bars
+    const wave = document.getElementById('wave');
+    const bars = innerWidth < 700 ? 60 : 140;
+    for (let i = 0; i < bars; i++) {
+      const b = document.createElement('i');
+      const h = 18 + Math.abs(Math.sin(i * 0.37) * 55 + Math.sin(i * 1.7) * 25);
+      b.style.height = Math.min(h, 100) + '%';
+      wave.appendChild(b);
+    }
+
+    // Reveal on scroll + counters
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        const n = e.target.querySelector?.('[data-count]') || (e.target.dataset.count && e.target);
+        if (n && !n.dataset.done) {
+          n.dataset.done = 1;
+          const end = +n.dataset.count, dur = reduce ? 0 : 1400, s = performance.now();
+          (function step(t) {
+            const p = dur ? Math.min((t - s) / dur, 1) : 1;
+            n.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))).toLocaleString('en-US');
+            if (p < 1) requestAnimationFrame(step);
+          })(s);
+        }
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.25 });
+    document.querySelectorAll('.stat, .clip, .svc li, .sec-head, .about-photo, .about-copy, .cta-title, .sticker, .timeline')
+      .forEach(el => io.observe(el));
+
+    // Playhead follows scroll through the timeline
+    const tl = document.getElementById('timeline');
+    const ph = tl.querySelector('.playhead');
+    const phTc = document.getElementById('ph-tc');
+    function movePlayhead() {
+      const r = tl.getBoundingClientRect();
+      const p = Math.min(Math.max((innerHeight * 0.75 - r.top) / (r.height + innerHeight * 0.35), 0), 1);
+      ph.style.setProperty('--p', p);
+      const secs = Math.round(p * 60);
+      phTc.textContent = `00:${pad(secs === 60 ? 59 : secs)}`;
+    }
+    addEventListener('scroll', movePlayhead, { passive: true });
+    addEventListener('resize', movePlayhead);
+    movePlayhead();
+
+    // Hero parallax: photo drifts, name shifts
+    const vf = document.querySelector('.viewfinder');
+    const nms = document.querySelectorAll('.name');
+    if (!reduce) addEventListener('scroll', () => {
+      const y = scrollY;
+      if (y > innerHeight * 1.2) return;
+      vf.style.transform = `translate(-50%, calc(-50% + ${y * 0.12}px)) rotate(${y * 0.008}deg)`;
+      nms.forEach(n => n.style.setProperty('--shift', `${y * 0.25}px`));
+    }, { passive: true });
+
+    // Custom cursor (mouse only)
+    const cur = document.querySelector('.cursor');
+    if (matchMedia('(pointer: fine)').matches && !reduce) {
+      let x = 0, y = 0, cx = 0, cy = 0;
+      addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; cur.classList.add('on'); });
+      (function loop() {
+        cx += (x - cx) * 0.2; cy += (y - cy) * 0.2;
+        cur.style.transform = `translate(${cx}px, ${cy}px)`;
+        requestAnimationFrame(loop);
+      })();
+      document.querySelectorAll('a, .clip').forEach(a => {
+        a.addEventListener('mouseenter', () => cur.classList.add('big'));
+        a.addEventListener('mouseleave', () => cur.classList.remove('big'));
+      });
+    }
   </script>
 </body>
 </html>
