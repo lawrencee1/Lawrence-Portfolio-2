@@ -433,8 +433,8 @@ const bokeh = new BokehPass(scene, camera, { focus: 5, aperture: 0.004, maxblur:
       vec4 acc = cc * w0; float wsum = w0;
       if (c0 > px.x * 0.7) {
         float rot = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453) * 6.2831853;
-        for (int i = 1; i <= 44; i++) {
-          float r = sqrt(float(i) / 44.0) * maxblur; float a = float(i) * 2.39996323 + rot;
+        for (int i = 1; i <= 28; i++) {
+          float r = sqrt(float(i) / 28.0) * maxblur; float a = float(i) * 2.39996323 + rot;
           vec2 uv = vUv + vec2(cos(a), sin(a)) * r * vec2(1.0, aspect);
           float zs = vdepth(uv); float cs = cocOf(zs);
           if (zs > z0) cs = min(cs, c0);              // background never smears over sharper foreground
@@ -582,8 +582,8 @@ function samplesFor(t) {
   const fa = _f.copy(a.look).sub(a.pos).normalize().clone(), fb = _f.copy(b.look).sub(b.pos).normalize();
   const px = (fa.angleTo(fb) + Math.abs(a.roll - b.roll) * Math.PI / 180 * 0.5 + a.pos.distanceTo(b.pos) / a.pos.distanceTo(a.look) * 0.5) / (a.fov * Math.PI / 180) * H;
   let n = Math.ceil(px / 5);
-  if ((t > 2.25 && t < 5.8) || (t > 9.7 && t < 12.4)) n = Math.max(n, 3);
-  return clamp(n, 1, 10);
+  if ((t > 2.25 && t < 5.8) || (t > 9.7 && t < 12.4)) n = Math.max(n, 2);
+  return clamp(n, 1, 6);
 }
 const SHUTTER = 0.5;
 function renderFrame(t) {
