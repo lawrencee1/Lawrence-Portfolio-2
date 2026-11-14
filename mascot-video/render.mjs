@@ -39,7 +39,7 @@ const shoot = async (page, t, file) => {
 };
 
 if (stills) {
-  const out = path.join(dir, 'out/stills'); fs.mkdirSync(out, { recursive: true });
+  const out = path.join(dir, 'out', arg('dir', 'stills')); fs.mkdirSync(out, { recursive: true });
   const { browser, page } = await open();
   for (const t of stills.split(',').map(Number)) await shoot(page, t, path.join(out, `t${t.toFixed(2).padStart(5, '0')}.jpg`));
   await browser.close();
