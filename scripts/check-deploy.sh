@@ -42,6 +42,7 @@ const { chromium } = require("playwright");
     const errors = [];
     p.on("pageerror", e => errors.push(e.message));
     await p.goto(live + "?v=" + Date.now(), { waitUntil: "networkidle" });
+    await p.waitForTimeout(5000); // let the opening curtain finish
     const sw = await p.evaluate(() => document.documentElement.scrollWidth);
     await p.screenshot({ path: `${out}/${name}.png`, fullPage: true });
     console.log(`${name}: ${out}/${name}.png  width=${sw}${sw > w ? "  (HORIZONTAL SCROLL!)" : ""}${errors.length ? "  JS errors: " + errors.join("; ") : ""}`);

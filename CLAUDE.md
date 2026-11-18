@@ -1,6 +1,9 @@
 # Lawrence Portfolio — working rules for Claude
 
-Static one-page portfolio (`index.html` + `styles.css`, no build step). Also: `404.html`,
+Static one-page portfolio (`index.html` + `styles.css` + `main.js`, no build step on Vercel).
+`index.html` is **generated**: edit `scripts/build/template.html` (page structure and copy) or
+`scripts/build/gen.py` (the drawn artwork: map, medallion, vines, closing scene), then run
+`python3 scripts/build/gen.py index.html` from the repo root and commit the result. Also: `404.html`,
 `robots.txt`, `sitemap.xml`, `site.webmanifest`, icons, `assets/og-image.jpg` (1200x630
 sharing preview), and `vercel.json` (caching + security headers). The contact section has a
 "quick brief" helper that builds a quote message to paste into a DM or email.
@@ -63,27 +66,43 @@ Those live with the owner, not here.
   Don't buy or change domains without asking.
 - Copy: simple and short.
 
-## Style notes — current design: "The Edit"
+## Style notes — current design: "Wastra" (batik)
 
-- Concept: the site behaves like a **video editor**. Viewfinder frame, blinking REC light,
-  running timecode, editing timeline with work blocks and a scroll-driven playhead, waveform,
-  ticker, and an animated Bali map demo (route draws on scroll, pins pop, km counter).
-- Bold and creative, not templated. Copy is **simple and short**, not personal/confessional.
-- Dark only. Colors: `--bg` near-black, `--acid` #c6ff3d (main accent), `--rec` red,
-  `--blue`, `--pink` for clips.
-- Fonts: Anton (display), Space Grotesk (body), JetBrains Mono (HUD/labels).
+- Concept: the site is made of **layered batik cloth and cut paper**, inspired by Javanese
+  batik and shadow-puppet (wayang) staging. All artwork is original SVG drawn for this site;
+  never copy reference images the owner shares.
+- Motifs (shared SVG patterns/symbols at the top of the page): kawung, truntum, parang,
+  mega mendung clouds, cecek dots, tumpal triangle borders, and the gunungan figure.
+- Palette: sogan black `--ink`, `--maroon`, `--gold` / `--gold-lt`, `--paper`, `--indigo`,
+  `--sage`, `--brown`. Dark and paper sections alternate, joined by scalloped `.edge` borders.
+- Fonts: Cormorant Garamond (display, italic for accents), Jost (body and labels).
+- Sections and their signature animation:
+  - Opening curtain (`.kelir`): two cloths part, a gunungan draws itself. Skipped by any
+    click/scroll/key and by reduced motion.
+  - Hero: portrait in a pointed arch, rotating halo, flickering lamp glow, gold dust canvas
+    with a wax-dot pointer trail, two gunungan that rise and sway.
+  - Maps (paper): Bali drawn as batik; route draws on scroll, pins bloom, compass turns,
+    vines grow in the corner (`[data-grow]`, `--g`).
+  - Work (ink): four cloths hang from a rod and sway with scroll speed (`--sway`).
+  - Services (paper): rows that fill with maroon on hover; icons draw in.
+  - Process (maroon, pinned 340vh): a medallion is drawn, coloured, then "revealed"
+    (`--draw`, `--fill`, `--rev`). Step copy is draft wording, not confirmed by the owner.
+  - About (ink): waterfall photo in an arch.
+  - Contact: closing diorama (sun, volcano, temple gate, palms, frangipani, birds) with the
+    title in a cartouche, then the quote brief form on paper.
 - Photos in `assets/` (portrait, waterfall, laugh) as .webp + .jpg fallback.
-- Hero name: solid copy behind the photo + outline copy (`.name-ghost`) over it.
-  On phones, LAWRENCE sits above the photo and NATHAN below.
-- Reveal animations add `.in` via IntersectionObserver; respect reduced motion.
-- Placeholders: `.ph` mono notes and `.clip-ph` tags (Instagram link, email, video previews,
-  Wowtravels project details).
-- Must look right at phone width (390px) with no sideways scrolling.
+- Copy stays **simple and short**.
+- Placeholders: `.ph` / `.soon` notes (Instagram link, email, video previews, Wowtravels).
+- Every animation must respect `prefers-reduced-motion` (see the block at the end of
+  `styles.css`) and the page must work at phone width (390px) with no sideways scrolling.
 - Never commit secrets or tokens. The repository is public.
 
 ## Earlier designs (restore points)
 
 The owner may ask to go back. Restore a design with
-`git checkout <commit> -- index.html styles.css` then commit and push.
+`git checkout <commit> -- index.html styles.css` (design 3 has no `main.js`; remove the
+`main.js` script tag is not needed because its `index.html` doesn't reference it), then
+commit and push.
 - Design 1 "simple portfolio": commit `ff50591`
 - Design 2 "notebook letter": commit `4bfa360`
+- Design 3 "The Edit" (dark video-editor look): commit `fad1422`

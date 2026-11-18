@@ -5,27 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Off the map — Lawrence Nathan</title>
   <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#170f0b" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
   <style>
-    .lost { min-height: 100svh; display: grid; place-content: center; gap: 22px; padding: 40px 20px; text-align: center; }
-    .lost .code { font-family: var(--display); font-size: clamp(7rem, 30vw, 18rem); line-height: .85; color: transparent; -webkit-text-stroke: 2px var(--text); position: relative; }
-    .lost .code b { position: absolute; left: 50%; top: 46%; width: 22px; height: 22px; border-radius: 50%; background: var(--rec); box-shadow: 0 0 0 10px rgba(255,59,48,.18), 0 0 24px var(--rec); transform: translate(-50%, -50%); animation: blink 1.2s steps(2) infinite; }
-    .lost p { color: var(--dim); font-size: 1.2rem; }
-    .lost .actions { justify-content: center; }
+    .lost { position: relative; min-height: 100svh; display: grid; place-content: center; justify-items: center; gap: 20px; padding: 40px 20px; text-align: center; overflow: hidden;
+      background: radial-gradient(60% 60% at 50% 42%, #6a1e22 0%, #34140f 45%, #170f0b 80%); }
+    .lost svg.g { width: min(40vw, 170px); height: auto; color: #e7cf94; filter: drop-shadow(0 14px 20px rgba(0,0,0,.5)); animation: lean 6s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+    @keyframes lean { from { transform: rotate(-7deg); } to { transform: rotate(7deg); } }
+    .lost h1 { font-size: clamp(3rem, 10vw, 6.4rem); }
+    .lost h1 em { font-style: italic; color: #e7cf94; }
+    .lost p.sub { font-family: var(--display); font-size: 1.4rem; max-width: 22em; }
+    .lost .bg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .08; }
+    .lost > *:not(.bg) { position: relative; }
   </style>
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
   <main class="lost">
-    <p class="mono" style="color: var(--rec)">● SIGNAL LOST · 00:00:04:04</p>
-    <div class="code" aria-label="404">404<b></b></div>
-    <h1 style="font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 6vw, 3.6rem); text-transform: uppercase;">You're off the map.</h1>
-    <p>This page doesn't exist. Let's get you back on the route.</p>
-    <div class="actions"><a class="btn btn-solid" href="/">Back to start ↺</a></div>
+    <svg class="bg" aria-hidden="true"><defs><pattern id="k" width="80" height="80" patternUnits="userSpaceOnUse"><g fill="none" stroke="#c9a04e" stroke-width="1.2"><ellipse cx="20" cy="20" rx="11" ry="25" transform="rotate(-45 20 20)"/><ellipse cx="60" cy="20" rx="11" ry="25" transform="rotate(45 60 20)"/><ellipse cx="20" cy="60" rx="11" ry="25" transform="rotate(45 20 60)"/><ellipse cx="60" cy="60" rx="11" ry="25" transform="rotate(-45 60 60)"/><circle cx="40" cy="40" r="3.2"/></g></pattern></defs><rect width="100%" height="100%" fill="url(#k)"/></svg>
+    <p class="kicker">Error 404 <span class="sep"></span> Page not found</p>
+    <svg class="g" viewBox="0 0 200 300" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path fill="#3d1014" d="M100 6C116 44 176 92 182 152C186 190 166 216 150 226L168 252L162 292H38L32 252L50 226C34 216 14 190 18 152C24 92 84 44 100 6Z"/><path d="M100 28C114 60 164 100 169 152C172 184 156 206 141 216H59C44 206 28 184 31 152C36 100 86 60 100 28Z"/><path d="M100 216V72M100 72C93 60 93 48 100 40C107 48 107 60 100 72Z"/><path d="M100 192C122 188 140 174 138 157C136 145 121 143 119 153M100 162C120 158 153 152 152 129C151 115 135 113 133 123M100 130C117 126 139 114 137 95C135 83 121 83 120 92M100 192C78 188 60 174 62 157C64 145 79 143 81 153M100 162C80 158 47 152 48 129C49 115 65 113 67 123M100 130C83 126 61 114 63 95C65 83 79 83 80 92"/><path d="M72 252H128V228H72ZM78 228L100 208L122 228M92 252V238H108V252M58 262H142M50 272H150M44 282H156"/></g></svg>
+    <h1>You're off <em>the map.</em></h1>
+    <p class="sub">This page doesn't exist. Let's get you back on the route.</p>
+    <div class="actions"><a class="btn btn-fill" href="/"><span>Back to start</span></a></div>
   </main>
 </body>
 </html>
