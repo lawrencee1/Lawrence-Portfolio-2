@@ -100,9 +100,9 @@ Those live with the owner, not here.
 ## Earlier designs (restore points)
 
 The owner may ask to go back. Restore a design with
-`git checkout <commit> -- index.html styles.css` (design 3 has no `main.js`; remove the
-`main.js` script tag is not needed because its `index.html` doesn't reference it), then
-commit and push.
+`git checkout <commit> -- index.html styles.css`, then commit and push. Designs 1 to 3 keep
+their script inside `index.html` and don't use `main.js`, so it can stay in place.
+The batik design itself is commit `f6f3725` (restore `index.html`, `styles.css`, `main.js`).
 - Design 1 "simple portfolio": commit `ff50591`
 - Design 2 "notebook letter": commit `4bfa360`
 - Design 3 "The Edit" (dark video-editor look): commit `fad1422`
