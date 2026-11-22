@@ -21,6 +21,25 @@
     });
   });
 
+  /* ---------- split the headline into words ---------- */
+  $$('[data-words]').forEach(el => {
+    el.setAttribute('aria-label', el.textContent.trim());
+    let i = 0;
+    const wrap = (text, parent) => {
+      text.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { parent.appendChild(document.createTextNode(' ')); return; }
+        const w = document.createElement('span'); w.className = 'w'; w.setAttribute('aria-hidden', 'true');
+        const c = document.createElement('span'); c.className = 'ch'; c.style.setProperty('--i', i++ * 1.6);
+        c.textContent = part; w.appendChild(c); parent.appendChild(w);
+      });
+    };
+    [...el.childNodes].forEach(node => {
+      if (node.nodeType === 3) { const frag = document.createDocumentFragment(); wrap(node.textContent, frag); node.replaceWith(frag); }
+      else if (node.nodeType === 1) { const text = node.textContent; node.textContent = ''; wrap(text, node); }
+    });
+  });
+
   /* ---------- opening curtain ---------- */
   let opened = false;
   function openCurtain() {
@@ -111,7 +130,7 @@
       swayV *= 0.9; sway += swayV;
       if (Math.abs(sway) > 0.002 || Math.abs(swayV) > 0.002) root.style.setProperty('--sway', sway.toFixed(3));
       // ribbon keeps moving, faster while scrolling
-      rx -= (0.05 + Math.min(Math.abs(d), 40) * 0.012) * dt * (d < 0 ? -1 : 1);
+      rx -= (0.035 + Math.min(Math.abs(d), 40) * 0.008) * dt * (d < 0 ? -1 : 1);
       const half = ribbon.scrollWidth / 2;
       if (rx < -half) rx += half; if (rx > 0) rx -= half;
       ribbon.style.transform = `translate3d(${rx.toFixed(1)}px,0,0)`;
@@ -198,23 +217,60 @@
     }).observe(hero);
   }
 
+  /* ---------- work tiles: silent preview loops that play only while visible ---------- */
+  const saveData = navigator.connection && navigator.connection.saveData;
+  const tiles = $$('.vid video[data-src]');
+  if (!reduce && !saveData && 'IntersectionObserver' in window) {
+    const vio = new IntersectionObserver(es => es.forEach(e => {
+      const v = e.target, tile = v.closest('.vid');
+      if (e.isIntersecting) {
+        if (!v.src) v.src = v.dataset.src;
+        const p = v.play();
+        if (p) p.then(() => tile.classList.add('playing')).catch(() => {});
+      } else if (!v.paused) v.pause();
+    }), { threshold: 0.35 });
+    tiles.forEach(v => vio.observe(v));
+  }
+
+  /* ---------- viewer: full video with sound, or an image gallery ---------- */
+  const viewer = $('#viewer'), stage = $('.viewer-stage', viewer);
+  const closeViewer = () => { if (viewer.open) viewer.close(); };
+  viewer.addEventListener('close', () => { stage.querySelectorAll('video').forEach(v => v.pause()); stage.textContent = ''; stage.classList.remove('gal'); });
+  viewer.addEventListener('click', e => { if (e.target === viewer || e.target === stage) closeViewer(); });
+  $('.viewer-close', viewer).addEventListener('click', closeViewer);
+  $$('.vid').forEach(tile => tile.addEventListener('click', () => {
+    stage.textContent = '';
+    if (tile.dataset.full) {
+      const v = document.createElement('video');
+      v.src = tile.dataset.full; v.controls = true; v.autoplay = true; v.playsInline = true; v.loop = true;
+      stage.appendChild(v);
+    } else if (tile.dataset.gallery) {
+      stage.classList.add('gal');
+      tile.dataset.gallery.split(',').forEach(src => {
+        const im = document.createElement('img'); im.src = src + '.jpg'; im.alt = tile.getAttribute('aria-label') || ''; stage.appendChild(im);
+      });
+    }
+    if (viewer.showModal) viewer.showModal(); else viewer.setAttribute('open', '');
+  }));
+
   /* ---------- quote brief ---------- */
-  const form = $('#quote'), preview = $('#q-preview'), copyBtn = $('#q-copy span'), mail = $('#q-mail');
-  const mailBase = mail.getAttribute('href');
+  const form = $('#quote'), preview = $('#q-preview'), copyBtn = $('#q-copy span'), mail = $('#q-mail'), wa = $('#q-wa');
+  const mailBase = mail.getAttribute('href'), waBase = wa.getAttribute('href');
   const brief = () => {
     const f = new FormData(form); const place = (f.get('place') || '').trim();
     return `Hi Lawrence! We're ${f.get('type')}${place ? ' in ' + place : ''}. We need ${f.get('need')}, ${f.get('when')}. Could you send us a quote?`;
   };
   const updateBrief = () => {
     const msg = brief();
-    preview.textContent = '“' + msg + '”';
+    preview.textContent = '\u201C' + msg + '\u201D';
+    wa.setAttribute('href', `${waBase}?text=${encodeURIComponent(msg)}`);
     mail.setAttribute('href', `${mailBase}?subject=${encodeURIComponent('Quote request')}&body=${encodeURIComponent(msg)}`);
   };
   form.addEventListener('input', updateBrief);
   form.addEventListener('submit', e => e.preventDefault());
   updateBrief();
   $('#q-copy').addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(brief()); copyBtn.textContent = 'Copied. Paste it in a DM'; }
+    try { await navigator.clipboard.writeText(brief()); copyBtn.textContent = 'Copied'; }
     catch { copyBtn.textContent = 'Select the text above to copy'; }
     setTimeout(() => (copyBtn.textContent = 'Copy my brief'), 3000);
   });
