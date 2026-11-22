@@ -26,11 +26,14 @@
   function openCurtain() {
     if (opened) return; opened = true;
     body.classList.add('open');
-    setTimeout(() => body.classList.add('opened'), 1700);
+    setTimeout(() => body.classList.add('opened'), 1400);
   }
-  if (reduce) { opened = true; body.classList.add('open', 'opened'); }
+  // the curtain plays once per visit; later page loads in the same tab skip it
+  let seen = false;
+  try { seen = sessionStorage.getItem('curtain') === '1'; sessionStorage.setItem('curtain', '1'); } catch {}
+  if (reduce || seen) { opened = true; body.classList.add('seen', 'open', 'opened'); }
   else {
-    setTimeout(openCurtain, 2300);
+    setTimeout(openCurtain, 1150);
     ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach(e => addEventListener(e, openCurtain, { once: true, passive: true }));
   }
 
@@ -215,16 +218,4 @@
     catch { copyBtn.textContent = 'Select the text above to copy'; }
     setTimeout(() => (copyBtn.textContent = 'Copy my brief'), 3000);
   });
-
-  /* ---------- cursor ---------- */
-  const cur = $('.cursor');
-  if (matchMedia('(pointer: fine)').matches && !reduce) {
-    let x = 0, y = 0, cx = 0, cy = 0;
-    addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; cur.classList.add('on'); });
-    (function loop() { cx += (x - cx) * 0.22; cy += (y - cy) * 0.22; cur.style.transform = `translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); })();
-    $$('a, button, .kain, .svc li').forEach(a => {
-      a.addEventListener('mouseenter', () => cur.classList.add('big'));
-      a.addEventListener('mouseleave', () => cur.classList.remove('big'));
-    });
-  }
 })();

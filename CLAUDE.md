@@ -77,22 +77,28 @@ Those live with the owner, not here.
   `--sage`, `--brown`. Dark and paper sections alternate, joined by scalloped `.edge` borders.
 - Fonts: Cormorant Garamond (display, italic for accents), Jost (body and labels).
 - Sections and their signature animation:
-  - Opening curtain (`.kelir`): two cloths part, a gunungan draws itself. Skipped by any
-    click/scroll/key and by reduced motion.
+  - Opening curtain (`.kelir`): two cloths part, a gunungan draws itself. Kept short
+    (opens after about 1 second), plays once per browser tab (`sessionStorage`), and is
+    skipped by any click/scroll/key and by reduced motion.
   - Hero: portrait in a pointed arch, rotating halo, flickering lamp glow, gold dust canvas
     with a wax-dot pointer trail, two gunungan that rise and sway.
   - Maps (paper): Bali drawn as batik; route draws on scroll, pins bloom, compass turns,
     vines grow in the corner (`[data-grow]`, `--g`).
   - Work (ink): four cloths hang from a rod and sway with scroll speed (`--sway`).
   - Services (paper): rows that fill with maroon on hover; icons draw in.
-  - Process (maroon, pinned 340vh): a medallion is drawn, coloured, then "revealed"
+  - Process (maroon, pinned 250vh): a medallion is drawn, coloured, then "revealed"
     (`--draw`, `--fill`, `--rev`). Step copy is draft wording, not confirmed by the owner.
   - About (ink): waterfall photo in an arch.
   - Contact: closing diorama (sun, volcano, temple gate, palms, frangipani, birds) with the
     title in a cartouche, then the quote brief form on paper.
 - Photos in `assets/` (portrait, waterfall, laugh) as .webp + .jpg fallback.
 - Copy stays **simple and short**.
-- Placeholders: `.ph` / `.soon` notes (Instagram link, email, video previews, Wowtravels).
+- Selling comes first: every section must help a visitor understand the offer, see proof,
+  or get in touch. Don't add decoration that slows that down (no custom cursor, no long
+  intro, no extra pinned sections).
+- The public page shows no "[placeholder]" text except one note in the contact card.
+  Still missing from the owner: a working contact (Instagram handle, email or WhatsApp),
+  real videos for the work cloths, client logos, and what was made for Wowtravels.
 - Every animation must respect `prefers-reduced-motion` (see the block at the end of
   `styles.css`) and the page must work at phone width (390px) with no sideways scrolling.
 - Never commit secrets or tokens. The repository is public.
