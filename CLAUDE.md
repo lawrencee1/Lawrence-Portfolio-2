@@ -54,6 +54,9 @@ Those live with the owner, not here.
 - Positioning: **"I make videos for brands with no footage of their own."** Support line:
   "Animated maps, motion graphics and licensed footage, so you don't need to film anything."
   Animated maps are the signature method. Sell video, not social media management.
+- Audience: travel, hospitality and property brands, plus **health and wellness** (clinics,
+  dental practices, gyms, wellness studios), which the owner is now targeting. The Work
+  section opens on the "Health and wellness" tab for that reason.
 - Identity: the site shows **only "Lawrence Nathan"**. Never add another name, and never link
   to or mention any other business or website.
 - Claims: never invent metrics, results, testimonials or quotes. The only result that may be
@@ -64,17 +67,24 @@ Those live with the owner, not here.
   48 hour delivery. Also: Property Launch Reel $300 to $600, Ad Variant Pack $200 to $350,
   Venue Loop $100 to $200. The Map Reel leads; the others are "also available". Never show an
   hourly rate.
-- Contact shown on the site: WhatsApp +62 896-0619-7040 and lawrencee.nathan@gmail.com.
-  The Instagram handle is **not confirmed**, so the site has no Instagram link. Add one only
-  when the owner gives the final handle.
+- Contact shown on the site: WhatsApp +62 896-0619-7040, lawrencee.nathan@gmail.com and
+  Instagram **@rawwaesthetic** (confirmed by the owner).
 - Copy: English, short and clear, **no em-dashes**, no hype.
-- Clients on the site: logo strip (Wowtravels and Nuanu Snow Show as text, logos for Kilo
-  Pererenan, Bella, Lava Lounge, Health Hub Bali, Biohacking Bali, nuHuman RAW, Luxe Concierge,
-  Poppy Advertising). Work shown: Wowtravels map videos, three Lava Lounge animated flyers,
-  Luxe Concierge social designs, and two pieces for private clients shown **without names or
-  logos** (a villa party film cut to venue and performance shots only, and a barbershop reel).
-- Nuanu Snow Show (July 2025): may be shown as trailer, one digital poster, one speaker reel
-  once the owner supplies the files.
+- Clients on the site: logo strip (Wowtravels as text, logos for Kilo Pererenan, Bella, Lava
+  Lounge, Health Hub Bali, Biohacking Bali, nuHuman RAW, Luxe Concierge, Poppy Advertising and
+  the Snow Show). Work tabs:
+  - Health and wellness: nuHuman RAW body-data overlays, Biohacking Bali conference explainer,
+    and the "One Plate, One Family" nutrition explainer. That last one is a **concept piece**:
+    always label it as a sample, never as client work, and never claim nutrition-campaign
+    experience or name any organisation with it.
+  - Events: Nuanu Snow Show trailer, digital poster, speaker reel.
+  - Venues: three Lava Lounge animated flyers.
+  - 3D and design: the 3D mascot and 3D promo (the owner's own studio pieces) and the Luxe
+    Concierge social designs.
+  - Films and reels: two pieces for private clients shown **without names or logos** (a villa
+    party film cut to venue and performance shots only, and a barbershop reel).
+- Prices on the site are the owner's. Do not add or change a price without the owner saying so.
+  Anything outside the four offers is "send a brief, fixed quote before I start".
 - Domain: not purchased yet. Free option is lawrencenathan.vercel.app.
   Don't buy or change domains without asking.
 
@@ -98,8 +108,10 @@ Those live with the owner, not here.
   - Maps (paper): Bali drawn as batik; route draws on scroll, pins bloom, compass turns,
     vines grow in the corner (`[data-grow]`, `--g`).
   - Proof (ink): Wowtravels before/after screenshots and two map videos.
-  - Work (ink): two rods of three cloths that sway with scroll speed (`--sway`); each cloth
-    carries a real video or image tile.
+  - Work (ink): tabs (`.tab[data-tab]`) switch between rods (`.rod-wrap[data-rod]`), one rod
+    of cloths visible at a time; cloths sway with scroll speed (`--sway`) and each carries a
+    real video or image tile. Without JavaScript every rod shows with its title.
+  - Phones get a floating WhatsApp button (`.fab`) between the hero and the contact form.
   - Prices (paper): Map Reel card, then "also available" rows that fill with maroon on hover.
   - Process (maroon, pinned 250vh): a medallion is drawn, coloured, then "revealed"
     (`--draw`, `--fill`, `--rev`).
@@ -110,14 +122,14 @@ Those live with the owner, not here.
 - Work media in `assets/work/`: for each video `name.jpg` (poster), `name-loop.mp4` (silent
   8 s preview, 360 px wide, loaded and played only while on screen) and `name.mp4` (full cut
   with sound, 480 px wide, opened in the `<dialog id="viewer">`). Keep new videos this small:
-  the whole folder is about 15 MB. Logos in `assets/logos/` are tinted cream on transparent.
+  the whole folder is about 27 MB. Logos in `assets/logos/` are tinted cream on transparent.
 - Copy stays **simple and short**.
 - Selling comes first: every section must help a visitor understand the offer, see proof,
   or get in touch. Don't add decoration that slows that down (no custom cursor, no long
   intro, no extra pinned sections).
 - The public page shows no "[placeholder]" text.
-  Still missing from the owner: the confirmed Instagram handle, the Nuanu Snow Show videos,
-  a property launch example, and a real map reel made for a hotel, villa or restaurant.
+  Still missing from the owner: a property launch example, a real map reel made for a
+  hotel, villa or clinic, client testimonials, and a decision on health-specific pricing.
 - Every animation must respect `prefers-reduced-motion` (see the block at the end of
   `styles.css`) and the page must work at phone width (390px) with no sideways scrolling.
 - Never commit secrets or tokens. The repository is public.

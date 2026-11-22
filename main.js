@@ -114,7 +114,7 @@
   /* ---------- scroll engine ---------- */
   const pars = $$('[data-par]').map(el => ({ el, f: +el.dataset.par, host: el.closest('section, .scene') || el }));
   const grows = $$('[data-grow]');
-  const nav = $('.nav');
+  const nav = $('.nav'), fab = $('.fab'), contact = $('.quote-wrap');
   const ribbon = $('.ribbon-track');
   let last = scrollY, sway = 0, swayV = 0, rx = 0, dirty = true, lastT = performance.now();
   const vis = el => { const r = el.getBoundingClientRect(); return r.bottom > -200 && r.top < innerHeight + 200 ? r : null; };
@@ -141,6 +141,7 @@
       const max = document.documentElement.scrollHeight - innerHeight;
       root.style.setProperty('--prog', clamp(y / max).toFixed(4));
       nav.classList.toggle('solid', y > 40);
+      if (fab) { const cr = contact.getBoundingClientRect(); fab.classList.toggle('show', y > innerHeight * 0.7 && cr.top > innerHeight * 0.6); }
 
       if (!reduce) pars.forEach(p => {
         const r = vis(p.host); if (!r) return;
@@ -231,6 +232,14 @@
     }), { threshold: 0.35 });
     tiles.forEach(v => vio.observe(v));
   }
+
+  /* ---------- work tabs ---------- */
+  const tabs = $$('.tab'), rods = $$('[data-rod]');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => { const on = x === t; x.classList.toggle('on', on); x.setAttribute('aria-selected', on); });
+    rods.forEach(r => r.classList.toggle('on', r.dataset.rod === t.dataset.tab));
+    dirty = true;
+  }));
 
   /* ---------- viewer: full video with sound, or an image gallery ---------- */
   const viewer = $('#viewer'), stage = $('.viewer-stage', viewer);
