@@ -45,28 +45,53 @@ proxy when configured): list deployments with
 `GET /v6/deployments?projectId=lawrenceportfoliosmm&limit=5`, then
 `GET /v3/deployments/<id>/events`.
 
-## Two versions of the site
+## The pages of the site
 
-The owner is comparing two offers. Both live in this repository and on the same Vercel project.
+All pages live in this repository and on the same Vercel project.
 
-- **Version 1, the homepage (`/`)**: video-first. "I make videos for brands with no footage of
-  their own", fixed prices per video. Files: `index.html` (generated from
-  `scripts/build/template.html`), `styles.css`, `main.js`.
-- **Version 2 (`/studio`)**: the whole-presence package for a business: ideas, content,
-  posting and a website the client can edit themselves. Monthly plans. Files: `studio.html`
-  (generated from `scripts/build/studio.html` with
-  `python3 scripts/build/gen.py studio.html studio.html`), `studio.css` (loaded after
-  `styles.css`), `studio.js`. Lighter, paper-first look built from the same batik parts.
-  Includes a click-to-edit demo of the client website editor (`#ed`), which is a front-end
-  demo only; it must keep its "This is a demo" note.
-- Version 2 is a **draft**: it has `noindex`, is not in the sitemap, is not linked from
-  version 1, and shows a "Preview draft" tag. Its plan prices ($450, $850, $1,400 a month and
-  $900 for a website) are Claude's proposal, **not confirmed by the owner**. Remove the draft
-  tag and `noindex` only when the owner approves the plans and prices.
-- Version 2 sells posting and websites as well as video. That is the owner's choice for this
-  version; version 1 keeps "sell video, not social media management".
-- To swap which version is the homepage, rename the outputs (and update canonical links,
-  sitemap and the deploy check) when the owner asks.
+- **`/` (version 1)**: video-first. "I make videos for brands with no footage of their own",
+  fixed prices per video. Files: `index.html` (generated from `scripts/build/template.html`),
+  `styles.css`, `main.js`.
+- **`/studio` (version 2)**: the whole-presence package: ideas, content, posting and a website
+  the client can edit themselves, sold as monthly plans. Lighter, paper-first look.
+- **`/clinics`**: version 2 written for dental and health clinics. Headline "More booked
+  consults, without filming", the editor demo in the hero, a "Safe to post" section about
+  Meta's health ad rules, and explainer samples. **This is the page to link in any message
+  to a clinic.**
+- `/studio` and `/clinics` share `studio.css` (loaded after `styles.css`) and `studio.js`.
+  Build them with `python3 scripts/build/gen.py studio.html studio.html` and
+  `python3 scripts/build/gen.py clinics.html clinics.html` (output file, then template name in
+  `scripts/build/`). They share the plans, steps, questions and contact sections, so keep
+  the two templates in step when one changes.
+- Neither page is linked from the homepage; the owner sends each link to different prospects.
+- Version 2 sells posting and websites as well as video. That is the owner's choice for these
+  pages; version 1 keeps "sell video, not social media management".
+
+### Version 2 rules (owner's copy, 25 Nov 2026)
+
+- Plans, exactly as the owner wrote them: Content $650/month (8 pieces: 4 videos and 4
+  designs), Content and Posting $1,150/month (12 pieces, posted on Instagram, TikTok and
+  Facebook, a short report every month; "Recommended", shown first on phones), Whole Presence
+  $1,850/month (plus a new website built in month one, the editor, updates on request).
+  Website alone: one-time $1,400.
+- Founding banner: "Founding clients: 20% off your first 3 months. Only 5 spots." Remove it
+  when the owner says the spots are gone.
+- Terms: USD, 3-month minimum then month to month, "Approve your first content plan or pay
+  nothing", paid monthly in advance by card or Wise, 2 rounds of changes per batch, not
+  included: replying to DMs and comments, ad spend, filming. Whole Presence: the website is
+  the client's after 6 months; cancelling earlier means paying the rest of $1,400 minus $233
+  per month already paid.
+- **The website and its editor are a one-time price with no monthly maintenance fee.** Say so
+  wherever the website is sold.
+- The click-to-edit editor (`#ed`) is a front-end demo only and must keep its "This is a
+  demo" note. The real editor is the owner's to build.
+- Clinics page: no promised patient numbers, no before-and-after claims, no invented results.
+  The "Safe to post" points must stay accurate to Meta's published Health and Wellness ad
+  rules and keep the note that it is not legal or medical advice.
+- The owner asked for a timeframe on the Wowtravels stat ("in 1 video"). Not added, because
+  the before/after screenshots on the homepage show 417 and 591 posts. Add a timeframe only
+  when the owner gives one that matches the evidence (months, or the one video with its view
+  count).
 
 ## Brand rules (owner's decisions, follow strictly)
 
@@ -127,6 +152,8 @@ Those live with the owner, not here.
     skipped by any click/scroll/key and by reduced motion.
   - Hero: headline (words rise in), portrait in a pointed arch, rotating halo, flickering
     lamp glow, gold dust canvas with a wax-dot pointer trail, two gunungan that rise and sway.
+    The headline, pitch and buttons must show at once on every page: never hide them behind
+    an animation. Phones (760px and under) get no opening curtain.
   - Clients (maroon band): slow logo ribbon under the label "Designed and edited for".
   - Maps (paper): Bali drawn as batik; route draws on scroll, pins bloom, compass turns,
     vines grow in the corner (`[data-grow]`, `--g`).
@@ -144,7 +171,8 @@ Those live with the owner, not here.
 - Photos in `assets/` (portrait, waterfall, laugh) as .webp + .jpg fallback.
 - Work media in `assets/work/`: for each video `name.jpg` (poster), `name-loop.mp4` (silent
   8 s preview, 360 px wide, loaded and played only while on screen) and `name.mp4` (full cut
-  with sound, 480 px wide, opened in the `<dialog id="viewer">`). Keep new videos this small:
+  with sound, 480 px wide, opened in the `<dialog id="viewer">`). Every tile image needs alt
+  text and every `<video>` a `poster`. Keep new videos this small:
   the whole folder is about 27 MB. Logos in `assets/logos/` are tinted cream on transparent.
 - Copy stays **simple and short**.
 - Selling comes first: every section must help a visitor understand the offer, see proof,

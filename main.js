@@ -50,7 +50,8 @@
   // the curtain plays once per visit; later page loads in the same tab skip it
   let seen = false;
   try { seen = sessionStorage.getItem('curtain') === '1'; sessionStorage.setItem('curtain', '1'); } catch {}
-  if (reduce || seen) { opened = true; body.classList.add('seen', 'open', 'opened'); }
+  const small = matchMedia('(max-width: 760px)').matches; // phones skip the curtain
+  if (reduce || seen || small) { opened = true; body.classList.add('seen', 'open', 'opened'); }
   else {
     setTimeout(openCurtain, 1150);
     ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach(e => addEventListener(e, openCurtain, { once: true, passive: true }));
@@ -251,6 +252,7 @@
     stage.textContent = '';
     if (tile.dataset.full) {
       const v = document.createElement('video');
+      const cover = tile.querySelector('img'); if (cover) v.poster = cover.currentSrc || cover.src;
       v.src = tile.dataset.full; v.controls = true; v.autoplay = true; v.playsInline = true; v.loop = true;
       stage.appendChild(v);
     } else if (tile.dataset.gallery) {

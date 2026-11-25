@@ -633,6 +633,12 @@ h1, h2, h3, .big, .price, .pr, strong, .proof { font-variant-numeric: lining-num
   .viewer-stage.gal img { height: auto; max-height: 76vh; width: 86vw; }
 }
 
+/* The headline, pitch and buttons are never hidden: they show at once. Only the extras animate. */
+.js .hero .ch, .js .hero-copy .a-up { opacity: 1; transform: none; transition: none; }
+.js .hero-copy .proof { opacity: .8; }
+/* No opening curtain on phones: content first */
+@media (max-width: 760px) { .js .kelir { display: none; } }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }

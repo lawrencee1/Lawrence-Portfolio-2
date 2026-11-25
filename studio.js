@@ -7,7 +7,7 @@
   const clamp = (v, a = 0, b = 1) => Math.min(Math.max(v, a), b);
 
   $('#yr').textContent = new Date().getFullYear();
-  requestAnimationFrame(() => body.classList.add('open', 'opened'));
+  body.classList.add('open', 'opened');
 
   /* reveal on scroll */
   const io = new IntersectionObserver(es => es.forEach(e => {
@@ -57,6 +57,7 @@
   $$('.vid[data-full]').forEach(tile => tile.addEventListener('click', () => {
     stage.textContent = '';
     const v = document.createElement('video');
+    const cover = tile.querySelector('img'); if (cover) v.poster = cover.currentSrc || cover.src;
     v.src = tile.dataset.full; v.controls = true; v.autoplay = true; v.playsInline = true; v.loop = true;
     stage.appendChild(v);
     viewer.showModal();
