@@ -45,6 +45,29 @@ proxy when configured): list deployments with
 `GET /v6/deployments?projectId=lawrenceportfoliosmm&limit=5`, then
 `GET /v3/deployments/<id>/events`.
 
+## Two versions of the site
+
+The owner is comparing two offers. Both live in this repository and on the same Vercel project.
+
+- **Version 1, the homepage (`/`)**: video-first. "I make videos for brands with no footage of
+  their own", fixed prices per video. Files: `index.html` (generated from
+  `scripts/build/template.html`), `styles.css`, `main.js`.
+- **Version 2 (`/studio`)**: the whole-presence package for a business: ideas, content,
+  posting and a website the client can edit themselves. Monthly plans. Files: `studio.html`
+  (generated from `scripts/build/studio.html` with
+  `python3 scripts/build/gen.py studio.html studio.html`), `studio.css` (loaded after
+  `styles.css`), `studio.js`. Lighter, paper-first look built from the same batik parts.
+  Includes a click-to-edit demo of the client website editor (`#ed`), which is a front-end
+  demo only; it must keep its "This is a demo" note.
+- Version 2 is a **draft**: it has `noindex`, is not in the sitemap, is not linked from
+  version 1, and shows a "Preview draft" tag. Its plan prices ($450, $850, $1,400 a month and
+  $900 for a website) are Claude's proposal, **not confirmed by the owner**. Remove the draft
+  tag and `noindex` only when the owner approves the plans and prices.
+- Version 2 sells posting and websites as well as video. That is the owner's choice for this
+  version; version 1 keeps "sell video, not social media management".
+- To swap which version is the homepage, rename the outputs (and update canonical links,
+  sitemap and the deploy check) when the owner asks.
+
 ## Brand rules (owner's decisions, follow strictly)
 
 This repository is **public**. Keep private details out of it: no legal names, no other

@@ -299,10 +299,11 @@ MAP = MAP.replace('@@BALI@@', BALI).replace('@@COMPASS@@', compass()).replace('@
 
 import os
 HERE = os.path.dirname(os.path.abspath(__file__))
-tpl = open(os.path.join(HERE, 'template.html')).read()
+TEMPLATE = sys.argv[2] if len(sys.argv) > 2 else 'template.html'
+tpl = open(os.path.join(HERE, TEMPLATE)).read()
 html = (tpl.replace('@@HALO@@', halo()).replace('@@MEDALLION@@', medallion()).replace('@@MAP@@', MAP)
         .replace('@@VINE_A@@', VINE_A).replace('@@VINE_B@@', VINE_B).replace('@@SCENE@@', scene())
         .replace('@@BFLY1@@', butterfly(0, 0, 1, 'bf1')).replace('@@BFLY2@@', butterfly(0, 0, 1, 'bf2')))
 assert '@@' not in html, [l for l in html.split('\n') if '@@' in l][:3]
 open(OUT, 'w').write(html)
-print('index.html', len(html) // 1024, 'KB')
+print(OUT, len(html) // 1024, 'KB')
