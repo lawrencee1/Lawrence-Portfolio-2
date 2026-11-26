@@ -101,7 +101,14 @@ All pages live in this repository and on the same Vercel project.
 A separate made-up dental clinic website ("Teduh Dental Studio") that shows clinics what
 their own site could look like. Plain `index.html` + `styles.css` + `main.js`, no build step,
 its own look (teal and cream, Fraunces + DM Sans), not the batik design. It is deployed as
-its own Vercel project with `demos/dentist` as the root directory.
+its own Vercel project, `teduh-dental-demo` (https://teduh-dental-demo.vercel.app), which
+sits on a different Vercel account from the portfolio and is **not** linked to GitHub.
+
+- It does not redeploy on push. Its build step downloads `index.html`, `styles.css`,
+  `main.js` and `favicon.svg` from `demos/dentist/` on `main`, so after pushing a change,
+  redeploy that project (Vercel dashboard "Redeploy", or the Vercel connector). A new file
+  must also be added to the download list in the project's `build.sh`.
+- Use relative file paths in the page (`styles.css`, not `/styles.css`).
 
 - Everything on it is fictional and must stay labelled: the top strip and footer say it is a
   demo, reviews and ratings say "sample", the address, phone and email are samples, and the
