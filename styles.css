@@ -617,6 +617,8 @@ h1, h2, h3, .big, .price, .pr, strong, .proof { font-variant-numeric: lining-num
   .offer-price { justify-items: start; text-align: left; }
 }
 @media (max-width: 760px) {
+  .direct a, .foot-links a, .plan-alt a, .work-note a { display: inline-block; padding: 10px 2px; }
+  .foot-links { flex-wrap: wrap; justify-content: center; }
   .fab { display: block; position: fixed; right: 14px; bottom: 14px; z-index: 55; font: 500 .7rem var(--body); letter-spacing: .22em; text-transform: uppercase; color: var(--paper); background: #1f7a4d; border: 1px solid var(--gold-lt); padding: 14px 18px; box-shadow: 0 12px 24px -8px rgba(0, 0, 0, .7); transform: translateY(90px); transition: transform .5s var(--ease); }
   .fab.show { transform: none; }
   .tabs { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-top: -6px; }

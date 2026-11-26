@@ -92,7 +92,7 @@
 .ed-l { display: block; font-size: .62rem; letter-spacing: .24em; text-transform: uppercase; color: var(--maroon); margin-bottom: 8px; font-weight: 500; }
 #ed-offers { list-style: none; display: grid; gap: 4px; margin-bottom: 10px; }
 #ed-offers li::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); margin-right: 10px; vertical-align: middle; }
-#ed-add { font: 500 .66rem var(--body); letter-spacing: .18em; text-transform: uppercase; color: var(--maroon); background: transparent; border: 1px dashed var(--maroon); padding: 8px 12px; cursor: pointer; }
+#ed-add { font: 500 .66rem var(--body); letter-spacing: .18em; text-transform: uppercase; color: var(--maroon); background: transparent; border: 1px dashed var(--maroon); padding: 12px 14px; cursor: pointer; }
 .ed.editing [data-ed] { outline: 1px dashed rgba(93, 26, 32, .45); outline-offset: 4px; cursor: text; transition: background .2s; }
 .ed.editing [data-ed]:hover, .ed.editing [data-ed]:focus { background: rgba(201, 160, 78, .25); outline-style: solid; }
 .ed:not(.editing) #ed-add, .ed:not(.editing) #ed-save { visibility: hidden; }

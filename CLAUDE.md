@@ -64,6 +64,9 @@ All pages live in this repository and on the same Vercel project.
   `scripts/build/`). They share the plans, steps, questions and contact sections, so keep
   the two templates in step when one changes.
 - Neither page is linked from the homepage; the owner sends each link to different prospects.
+- Each page has its own sharing image (`assets/og-image.jpg`, `og-studio.jpg`, `og-clinics.jpg`,
+  1200x630, a capture of that page's hero). Remake it when a hero headline changes, because
+  it is what shows when the link is pasted into WhatsApp or a DM.
 - Version 2 sells posting and websites as well as video. That is the owner's choice for these
   pages; version 1 keeps "sell video, not social media management".
 
@@ -172,7 +175,9 @@ Those live with the owner, not here.
 - Work media in `assets/work/`: for each video `name.jpg` (poster), `name-loop.mp4` (silent
   8 s preview, 360 px wide, loaded and played only while on screen) and `name.mp4` (full cut
   with sound, 480 px wide, opened in the `<dialog id="viewer">`). Every tile image needs alt
-  text and every `<video>` a `poster`. Keep new videos this small:
+  text. The tile image is the cover; the script copies it to the video's `poster` only when the
+  tile comes on screen (a `poster` attribute in the markup downloads every cover at once).
+  Keep new videos this small:
   the whole folder is about 27 MB. Logos in `assets/logos/` are tinted cream on transparent.
 - Copy stays **simple and short**.
 - Selling comes first: every section must help a visitor understand the offer, see proof,

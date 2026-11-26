@@ -41,7 +41,7 @@
     const vio = new IntersectionObserver(es => es.forEach(e => {
       const v = e.target, tile = v.closest('.vid');
       if (e.isIntersecting) {
-        if (!v.src) v.src = v.dataset.src;
+        if (!v.src) { const cover = tile.querySelector('img'); if (cover) v.poster = cover.currentSrc || cover.src; v.src = v.dataset.src; }
         const p = v.play();
         if (p) p.then(() => tile.classList.add('playing')).catch(() => {});
       } else if (!v.paused) v.pause();
