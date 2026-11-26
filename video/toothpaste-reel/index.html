@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:Anton;src:url(assets/fonts/anton.woff2) format("woff2")}
+@font-face{font-family:Baloo;src:url(assets/fonts/baloo2-800.woff2) format("woff2");font-weight:800}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#1F5FE0}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:Anton,sans-serif}
+.clip{position:absolute;inset:0}
+.scene{overflow:hidden;background:#1F5FE0}
+.scene.dark{background:#0A0E2A}
+.cam{position:absolute;inset:0}
+.bg{position:absolute;inset:0;width:1080px;height:1920px}
+.act{position:absolute}.act svg{display:block;width:100%;height:auto;overflow:visible}
+.hl{position:absolute;left:0;width:1080px;text-align:center;line-height:1;text-transform:none;z-index:5}
+.hl>div{white-space:nowrap}
+.l1{font-size:140px;letter-spacing:1px}
+.l2{font-size:236px;margin-top:6px}
+.l3{font-size:108px}
+.xl{font-size:250px;margin:4px 0 2px}
+.xl2{font-size:196px;margin-top:20px}
+.xl2 span{display:inline-block;background:#E5303C;color:#fff;padding:0 44px 6px;transform:rotate(-4deg);box-shadow:14px 14px 0 #121B45}
+.xxl{font-size:400px;color:#fff;text-shadow:12px 12px 0 #FF4FA3}
+.tag{display:inline-block;font-family:Baloo;font-weight:800;font-size:62px;color:#121B45;background:#FBF0D2;padding:6px 34px 2px;border-radius:14px;box-shadow:8px 8px 0 #121B45;margin-bottom:22px}
+.pee{color:#FFE01F;text-shadow:9px 9px 0 #121B45}
+.white{color:#fff;text-shadow:9px 9px 0 #121B45}
+.yellow{color:#F8B62B;text-shadow:12px 12px 0 #121B45}
+#s5hl .l2{font-size:150px}
+.emo{font-family:"Noto Color Emoji";font-size:.8em;text-shadow:none}
+.drop{position:absolute;width:26px;height:34px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:#FFE01F;opacity:0}
+.front{pointer-events:none}
+#s6grey{position:absolute;inset:0;background:#808080;mix-blend-mode:saturation;opacity:0}
+#s6dim{position:absolute;inset:0;background:#121B45;opacity:0}
+#s6pause{position:absolute;left:70px;top:150px;display:flex;gap:22px;opacity:0}
+#s6pause i{width:30px;height:96px;background:#fff;box-shadow:6px 6px 0 #121B45}
+#s8flash{position:absolute;inset:0;background:#FF4FA3;opacity:0;z-index:6}
+#ticker{z-index:20;pointer-events:none}
+#tpill{position:absolute;left:50%;top:128px;height:108px;width:400px;margin-left:-200px;background:#121B45;border:8px solid #FBF0D2;border-radius:60px;box-shadow:0 10px 0 rgba(10,14,42,.35);overflow:hidden}
+#twin{position:absolute;inset:0;overflow:hidden}
+.trow{height:92px;line-height:96px;text-align:center;font-size:60px;color:#FBF0D2;letter-spacing:2px;white-space:nowrap}
+.tri{position:absolute;top:50%;width:0;height:0;border:13px solid transparent;margin-top:-13px;z-index:2}
+.tri.l{left:14px;border-left-color:#E5303C}.tri.r{right:14px;border-right-color:#E5303C}
+#subs{z-index:30;pointer-events:none}
+.chunk{position:absolute;left:90px;width:900px;top:1470px;text-align:center;font-family:Baloo;font-weight:800;font-size:66px;line-height:1.1;color:#fff;-webkit-text-stroke:14px #121B45;paint-order:stroke fill;opacity:0}
+.chunk span{display:inline-block;margin:0 6px}
+#grain{position:absolute;inset:0;z-index:40;opacity:.16;mix-blend-mode:multiply;pointer-events:none}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="60" data-width="1080" data-height="1920" data-fps="30">
+<div id="s1" class="clip scene " data-start="0" data-duration="3" data-track-index="1">
+  <div class="cam" id="s1cam" style="transform-origin:760px 1010px">
+    <svg class="bg" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1920" fill="#1F5FE0"/>
+  <path d="M0,1060 h1080 v400 h-1080z" fill="#1747B8" opacity=".0"/>
+  <g transform="translate(700,660) scale(1.5)">
+  <path d="M0,60 a45,45 0 0 1 60,-42 a62,62 0 0 1 118,-6 a50,50 0 0 1 82,48 z" fill="#C9D8F5"/>
+  <path d="M0,60 a45,45 0 0 1 60,-42 a62,62 0 0 1 118,-6 a50,50 0 0 1 60,20 a70,40 0 0 0 -90,6 a60,40 0 0 0 -100,10 a50,30 0 0 0 -48,14 z" fill="#FFFFFF"/>
+</g><g transform="translate(620,1000) scale(0.9)">
+  <path d="M0,60 a45,45 0 0 1 60,-42 a62,62 0 0 1 118,-6 a50,50 0 0 1 82,48 z" fill="#C9D8F5"/>
+  <path d="M0,60 a45,45 0 0 1 60,-42 a62,62 0 0 1 118,-6 a50,50 0 0 1 60,20 a70,40 0 0 0 -90,6 a60,40 0 0 0 -100,10 a50,30 0 0 0 -48,14 z" fill="#FFFFFF"/>
+</g>
+  <g fill="#1747B8"><path d="M560,1130 L820,1010 L1080,1130 Z"/><rect x="560" y="1130" width="520" height="30"/>
+  <rect x="590" y="1160" width="44" height="220"/><rect x="680" y="1160" width="44" height="220"/><rect x="770" y="1160" width="44" height="220"/><rect x="860" y="1160" width="44" height="220"/><rect x="950" y="1160" width="44" height="220"/><rect x="1040" y="1160" width="44" height="220"/></g>
+  <rect y="1368" width="1080" height="560" fill="#F1DFB0"/>
+  <rect y="1368" width="1080" height="46" fill="#FBF0D2"/>
+  <rect y="1414" width="1080" height="14" fill="#DCC386"/>
+</svg>
+    <div id="s1roman" class="act" style="left:-30px;top:560px;width:600px;transform-origin:50% 100%"><svg viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg">
+  <path d="M70,900 L96,540 C104,440 200,396 300,396 C400,396 496,440 504,540 L530,900 Z" fill="#fff"/>
+  <path d="M392,408 C460,430 498,480 504,540 L530,900 L410,900 C432,720 424,540 392,408 Z" fill="#C9D8F5"/>
+  <path d="M130,440 L236,400 L470,900 L310,900 Z" fill="#E5303C"/>
+  <path d="M236,400 L470,900 L420,900 L196,416 Z" fill="#B01E2E"/>
+  <path d="M96,540 C104,480 150,430 210,410 L180,900 L70,900 Z" fill="#C9D8F5" opacity=".0"/>
+  <rect x="262" y="330" width="78" height="92" fill="#CC7B48"/>
+  <path d="M262,330 h46 v92 h-46 z" fill="#EDA06A"/>
+  <ellipse cx="408" cy="262" rx="20" ry="30" fill="#CC7B48"/>
+  <ellipse cx="192" cy="262" rx="20" ry="30" fill="#EDA06A"/>
+  <clipPath id="rh"><ellipse cx="300" cy="250" rx="108" ry="124"/></clipPath>
+  <ellipse cx="300" cy="250" rx="108" ry="124" fill="#CC7B48"/>
+  <g clip-path="url(#rh)"><ellipse cx="276" cy="244" rx="108" ry="126" fill="#EDA06A"/>
+    <path d="M180,200 C190,110 410,110 420,200 C400,150 340,150 300,170 C260,150 200,150 180,200 Z" fill="#4A2A1A"/></g>
+  <path d="M300,232 C282,270 276,292 300,298 C320,300 326,290 318,276 Z" fill="#CC7B48"/>
+  <ellipse cx="252" cy="232" rx="11" ry="14" fill="#121B45"/><ellipse cx="346" cy="232" rx="11" ry="14" fill="#121B45"/>
+  <path d="M228,204 q24,-18 48,-4 M324,200 q24,-14 48,4" fill="none" stroke="#4A2A1A" stroke-width="11" stroke-linecap="round"/>
+  <path d="M238,312 Q300,372 366,312 Q300,330 238,312 Z" fill="#121B45"/>
+  <path d="M250,316 Q300,334 354,316 L348,326 Q300,346 256,326 Z" fill="#fff"/>
+  <ellipse cx="196" cy="196" rx="15" ry="34" fill="#F8B62B" transform="rotate(-62 196 196)"/><ellipse cx="200" cy="200" rx="6" ry="24" fill="#D9931A" transform="rotate(-62 196 196)"/><ellipse cx="206" cy="160" rx="15" ry="34" fill="#F8B62B" transform="rotate(-42 206 160)"/><ellipse cx="210" cy="164" rx="6" ry="24" fill="#D9931A" transform="rotate(-42 206 160)"/><ellipse cx="228" cy="130" rx="15" ry="34" fill="#F8B62B" transform="rotate(-22 228 130)"/><ellipse cx="232" cy="134" rx="6" ry="24" fill="#D9931A" transform="rotate(-22 228 130)"/><ellipse cx="258" cy="112" rx="15" ry="34" fill="#F8B62B" transform="rotate(-4 258 112)"/><ellipse cx="262" cy="116" rx="6" ry="24" fill="#D9931A" transform="rotate(-4 258 112)"/><ellipse cx="404" cy="196" rx="15" ry="34" fill="#F8B62B" transform="rotate(62 404 196)"/><ellipse cx="408" cy="200" rx="6" ry="24" fill="#D9931A" transform="rotate(62 404 196)"/><ellipse cx="394" cy="160" rx="15" ry="34" fill="#F8B62B" transform="rotate(42 394 160)"/><ellipse cx="398" cy="164" rx="6" ry="24" fill="#D9931A" transform="rotate(42 394 160)"/><ellipse cx="372" cy="130" rx="15" ry="34" fill="#F8B62B" transform="rotate(22 372 130)"/><ellipse cx="376" cy="134" rx="6" ry="24" fill="#D9931A" transform="rotate(22 372 130)"/><ellipse cx="342" cy="112" rx="15" ry="34" fill="#F8B62B" transform="rotate(4 342 112)"/><ellipse cx="346" cy="116" rx="6" ry="24" fill="#D9931A" transform="rotate(4 342 112)"/>
+</svg></div>
+    <div id="s1jar" class="act" style="left:580px;top:946px;width:330px;transform-origin:50% 100%"><svg viewBox="0 0 360 460" xmlns="http://www.w3.org/2000/svg">
+  <clipPath id="jc"><path d="M96,96 C10,170 6,340 96,430 L264,430 C354,340 350,170 264,96 Z"/></clipPath>
+  <path d="M70,150 C10,150 10,260 62,270" fill="none" stroke="#A93C1F" stroke-width="22" stroke-linecap="round"/>
+  <path d="M290,150 C350,150 350,260 298,270" fill="none" stroke="#A93C1F" stroke-width="22" stroke-linecap="round"/>
+  <path d="M96,96 C10,170 6,340 96,430 L264,430 C354,340 350,170 264,96 Z" fill="#A93C1F"/>
+  <g clip-path="url(#jc)"><path d="M96,96 C10,170 6,340 96,430 L264,430 C354,340 350,170 264,96 Z" fill="#DD5A2C" transform="translate(-34,-6)"/>
+    <path d="M0,150 h360 v16 h-360z M0,372 h360 v14 h-360z" fill="#A93C1F" opacity=".55"/></g>
+  <path d="M84,60 h192 l-10,50 h-172 z" fill="#A93C1F"/><path d="M84,60 h130 l-6,50 h-114 z" fill="#DD5A2C"/>
+  <ellipse cx="180" cy="60" rx="100" ry="26" fill="#A93C1F"/>
+  <ellipse cx="180" cy="62" rx="82" ry="17" fill="#FFE01F"/><ellipse cx="160" cy="58" rx="30" ry="5" fill="#FFF3A0"/>
+  <path d="M258,74 q16,40 4,70 q-14,-22 -4,-70z" fill="#FFE01F"/>
+  <g transform="rotate(-5 180 270)"><rect x="82" y="212" width="196" height="112" rx="8" fill="#FBF0D2"/>
+    <rect x="82" y="212" width="196" height="112" rx="8" fill="none" stroke="#121B45" stroke-width="6"/>
+    <text x="180" y="302" text-anchor="middle" font-family="Anton" font-size="92" fill="#121B45" letter-spacing="6">XXX</text></g>
+</svg></div>
+    <div id="s1arm" class="act" style="left:415px;top:800px;width:400px;transform-origin:10% 57.5%"><svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <path d="M40,236 Q110,300 240,132" fill="none" stroke="#CC7B48" stroke-width="64" stroke-linecap="round"/>
+  <path d="M36,226 Q104,286 236,122" fill="none" stroke="#EDA06A" stroke-width="54" stroke-linecap="round"/>
+  <path d="M214,92 L330,206" stroke="#7A4A22" stroke-width="16" stroke-linecap="round"/>
+  <path d="M322,198 l26,8 M324,200 l18,22 M320,202 l4,28 M326,196 l28,-6" stroke="#C99A4A" stroke-width="7" stroke-linecap="round"/>
+  <g id="wet"><path d="M322,198 l26,8 M324,200 l18,22 M320,202 l4,28 M326,196 l28,-6" stroke="#FFE01F" stroke-width="8" stroke-linecap="round"/>
+    <path d="M336,236 q10,18 0,26 q-10,-8 0,-26z" fill="#FFE01F"/></g>
+  <circle cx="240" cy="124" r="44" fill="#CC7B48"/><circle cx="234" cy="118" r="40" fill="#EDA06A"/>
+  <path d="M212,112 q20,-16 44,-2 M214,132 q20,-12 42,0" fill="none" stroke="#CC7B48" stroke-width="6" stroke-linecap="round"/>
+</svg></div>
+    <div id="s1drops"><i class="drop" style="left:742px;top:1000px"></i><i class="drop" style="left:750px;top:1000px"></i><i class="drop" style="left:758px;top:1000px"></i><i class="drop" style="left:766px;top:1000px"></i><i class="drop" style="left:774px;top:1000px"></i></div>
+    <svg class="bg front" viewBox="0 0 1080 1920"><rect y="1368" width="1080" height="46" fill="#FBF0D2"/><rect y="1414" width="1080" height="14" fill="#DCC386"/><rect y="1428" width="1080" height="500" fill="#F1DFB0"/></svg>
+    <div id="s1gigi" class="act" style="left:850px;top:1150px;width:250px;transform-origin:50% 100%"><svg viewBox="-190 -280 380 310" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="gc1"><path d="M-92,-120 C-104,-205 -52,-240 0,-218 C52,-240 104,-205 92,-120 C88,-72 82,-40 72,-6 C63,24 35,24 28,-10 C22,-40 10,-56 0,-56 C-10,-56 -22,-40 -28,-10 C-35,24 -63,24 -72,-6 C-82,-40 -88,-72 -92,-120 Z"/></clipPath></defs>
+    <ellipse cx="6" cy="14" rx="96" ry="14" fill="#121B45" opacity=".22"/>
+    <path d="M-92,-120 C-104,-205 -52,-240 0,-218 C52,-240 104,-205 92,-120 C88,-72 82,-40 72,-6 C63,24 35,24 28,-10 C22,-40 10,-56 0,-56 C-10,-56 -22,-40 -28,-10 C-35,24 -63,24 -72,-6 C-82,-40 -88,-72 -92,-120 Z" fill="#C9D8F5"/>
+    <g clip-path="url(#gc1)"><path d="M-92,-120 C-104,-205 -52,-240 0,-218 C52,-240 104,-205 92,-120 C88,-72 82,-40 72,-6 C63,24 35,24 28,-10 C22,-40 10,-56 0,-56 C-10,-56 -22,-40 -28,-10 C-35,24 -63,24 -72,-6 C-82,-40 -88,-72 -92,-120 Z" fill="#fff" transform="translate(-20,-8)"/>
+      <path d="M-70,-190 q14,-22 40,-24" fill="none" stroke="#C9D8F5" stroke-width="0"/></g>
+    <g class="gf gf-shock" ><circle cx="-36" cy="-142" r="28" fill="#121B45"/><circle cx="-36" cy="-142" r="21" fill="#fff"/><circle cx="-42" cy="-140" r="9" fill="#121B45"/><circle cx="36" cy="-142" r="28" fill="#121B45"/><circle cx="36" cy="-142" r="21" fill="#fff"/><circle cx="30" cy="-140" r="9" fill="#121B45"/><path d="M-56,-192 q20,-16 40,-4 M16,-196 q20,-12 40,4" fill="none" stroke="#121B45" stroke-width="9" stroke-linecap="round"/><ellipse cx="0" cy="-90" rx="21" ry="28" fill="#121B45"/><ellipse cx="0" cy="-74" rx="12" ry="9" fill="#E5303C"/>
+    <ellipse cx="-62" cy="-112" rx="15" ry="9" fill="#FF9DB0" opacity=".85"/><ellipse cx="62" cy="-112" rx="15" ry="9" fill="#FF9DB0" opacity=".85"/>
+    <path d="M-86,-115 Q-130,-145 -138,-201" fill="none" stroke="#9FB4E8" stroke-width="22" stroke-linecap="round"/>
+     <path d="M-86,-120 Q-130,-150 -138,-206" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/>
+     <circle cx="-136" cy="-202" r="19" fill="#9FB4E8"/><circle cx="-139" cy="-207" r="17" fill="#fff"/><path d="M86,-115 Q130,-145 138,-201" fill="none" stroke="#9FB4E8" stroke-width="22" stroke-linecap="round"/>
+     <path d="M86,-120 Q130,-150 138,-206" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/>
+     <circle cx="140" cy="-202" r="19" fill="#9FB4E8"/><circle cx="137" cy="-207" r="17" fill="#fff"/></g><g class="gf gf-gag" style="opacity:0"><path d="M-52,-157 L-22,-142 L-52,-127" fill="none" stroke="#121B45" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M52,-157 L22,-142 L52,-127" fill="none" stroke="#121B45" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M-60,-178 L-20,-192 M20,-192 L60,-178" stroke="#121B45" stroke-width="9" stroke-linecap="round"/><path d="M-30,-98 q10,-12 20,0 t20,0 t20,0" fill="none" stroke="#121B45" stroke-width="9" stroke-linecap="round"/><path d="M-11,-96 v24 a13,13 0 0 0 26,0 v-24 z" fill="#FF6F91"/><path d="M2,-94 v20" stroke="#B01E2E" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="-62" cy="-112" rx="15" ry="9" fill="#FF9DB0" opacity=".85"/><ellipse cx="62" cy="-112" rx="15" ry="9" fill="#FF9DB0" opacity=".85"/>
+    <path d="M-86,-95 Q-120,-55 -66,-79" fill="none" stroke="#9FB4E8" stroke-width="22" stroke-linecap="round"/>
+     <path d="M-86,-100 Q-120,-60 -66,-84" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/>
+     <circle cx="-64" cy="-80" r="19" fill="#9FB4E8"/><circle cx="-67" cy="-85" r="17" fill="#fff"/><path d="M86,-95 Q120,-55 66,-79" fill="none" stroke="#9FB4E8" stroke-width="22" stroke-linecap="round"/>
+     <path d="M86,-100 Q120,-60 66,-84" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/>
+     <circle cx="68" cy="-80" r="19" fill="#9FB4E8"/><circle cx="65" cy="-85" r="17" fill="#fff"/></g></svg></div>
+  </div>
+  <div class="hl" id="s1hl" style="top:262px">
+    <div class="l1 pee">ROMANS BRUSHED</div>
+    <div class="l2 pee">WITH <span id="s1pee">PEE</span></div>
+  </div></div>
+<div id="s5" class="clip scene " data-start="15" data-duration="5" data-track-index="1">
+  <div class="cam" id="s5cam">
+  <svg class="bg" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1920" fill="#1F5FE0"/>
+  <path d="M0,1060 h1080 v400 h-1080z" fill="#1747B8" opacity=".0"/>
+  <g transform="translate(60,700) scale(1.3)">
+  <path d="M0,60 a45,45 0 0 1 60,-42 a62,62 0 0 1 118,-6 a50,50 0 0 1 82,48 z" fill="#C9D8F5"/>
+  <path d="M0,60 a45,45 0 0 1 60,-42 a62,62 0 0 1 118,-6 a50,50 0 0 1 60,20 a70,40 0 0 0 -90,6 a60,40 0 0 0 -100,10 a50,30 0 0 0 -48,14 z" fill="#FFFFFF"/>
+</g><g transform="translate(720,1040) scale(1.1)">
+  <path d="M0,60 a45,45 0 0 1 60,-42 a62,62 0 0 1 118,-6 a50,50 0 0 1 82,48 z" fill="#C9D8F5"/>
+  <path d="M0,60 a45,45 0 0 1 60,-42 a62,62 0 0 1 118,-6 a50,50 0 0 1 60,20 a70,40 0 0 0 -90,6 a60,40 0 0 0 -100,10 a50,30 0 0 0 -48,14 z" fill="#FFFFFF"/>
+</g>
+  <g fill="#1747B8"><path d="M-40,1380 L160,1120 L300,1260 L420,1160 L600,1380 Z"/></g>
+  <rect y="1368" width="1080" height="560" fill="#F1DFB0"/>
+  <rect y="1368" width="1080" height="46" fill="#FBF0D2"/>
+  <rect y="1414" width="1080" height="14" fill="#DCC386"/>
+</svg>
+  <div id="s5pig" class="act" style="left:60px;top:900px;width:640px;transform-origin:50% 100%"><svg viewBox="0 0 700 520" xmlns="http://www.w3.org/2000/svg">
+  <path d="M588,250 q54,-30 44,-70 q-34,-14 -40,18 q-4,26 24,24" fill="none" stroke="#DB6584" stroke-width="14" stroke-linecap="round"/>
+  <rect x="210" y="380" width="56" height="120" rx="20" fill="#DB6584"/><rect x="210" y="472" width="56" height="30" rx="10" fill="#121B45"/><rect x="290" y="380" width="56" height="120" rx="20" fill="#F78FA9"/><rect x="290" y="472" width="56" height="30" rx="10" fill="#121B45"/><rect x="440" y="380" width="56" height="120" rx="20" fill="#DB6584"/><rect x="440" y="472" width="56" height="30" rx="10" fill="#121B45"/><rect x="520" y="380" width="56" height="120" rx="20" fill="#F78FA9"/><rect x="520" y="472" width="56" height="30" rx="10" fill="#121B45"/>
+  <clipPath id="pb"><ellipse cx="380" cy="290" rx="232" ry="150"/></clipPath>
+  <ellipse cx="380" cy="290" rx="232" ry="150" fill="#DB6584"/>
+  <g clip-path="url(#pb)"><ellipse cx="366" cy="262" rx="236" ry="150" fill="#F78FA9"/></g>
+  <ellipse cx="318" cy="158" rx="46" ry="16" fill="#FFC2D2"/>
+  <path d="M282,150 v-30 M300,146 v-36 M320,144 v-40 M340,146 v-34 M358,150 v-28" stroke="#4A2A1A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M96,150 L70,50 L170,110 Z" fill="#DB6584"/><path d="M190,110 L250,36 L280,140 Z" fill="#F78FA9"/>
+  <clipPath id="ph"><circle cx="180" cy="220" r="122"/></clipPath>
+  <circle cx="180" cy="220" r="122" fill="#DB6584"/><g clip-path="url(#ph)"><circle cx="168" cy="206" r="124" fill="#F78FA9"/></g>
+  <ellipse cx="236" cy="258" rx="58" ry="44" fill="#DB6584"/><ellipse cx="216" cy="256" rx="9" ry="14" fill="#121B45"/><ellipse cx="256" cy="254" rx="9" ry="14" fill="#121B45"/>
+  <circle cx="150" cy="190" r="22" fill="#fff"/><circle cx="234" cy="176" r="22" fill="#fff"/>
+  <circle cx="160" cy="188" r="11" fill="#121B45"/><circle cx="244" cy="174" r="11" fill="#121B45"/>
+  <path d="M118,158 L176,170 M204,154 L262,140" stroke="#121B45" stroke-width="12" stroke-linecap="round"/>
+  <path d="M150,306 q26,-18 52,0" fill="none" stroke="#121B45" stroke-width="9" stroke-linecap="round"/>
+</svg></div>
+  <div id="s5brush" class="act" style="left:520px;top:700px;width:500px;transform:rotate(-14deg)"><svg viewBox="0 0 460 110" xmlns="http://www.w3.org/2000/svg">
+  <rect x="318" y="0" width="15" height="60" rx="6" fill="#4A2A1A"/><rect x="338" y="4" width="15" height="60" rx="6" fill="#6B3A22"/><rect x="358" y="0" width="15" height="60" rx="6" fill="#4A2A1A"/><rect x="378" y="4" width="15" height="60" rx="6" fill="#6B3A22"/><rect x="398" y="0" width="15" height="60" rx="6" fill="#4A2A1A"/><rect x="418" y="4" width="15" height="60" rx="6" fill="#6B3A22"/>
+  <rect x="0" y="52" width="460" height="48" rx="24" fill="#B8862E"/><rect x="0" y="52" width="460" height="34" rx="17" fill="#E8BC5E"/>
+  <path d="M120,52 v48 M250,52 v48" stroke="#B8862E" stroke-width="7"/>
+  <path d="M300,62 h150" stroke="#E5303C" stroke-width="12" stroke-linecap="round"/>
+</svg></div></div>
+  <div class="hl" id="s5hl" style="top:300px">
+    <div class="tag">First toothbrush:</div>
+    <div class="l2 white">PIG NECK HAIR <span class="emo">🐷</span></div>
+  </div></div>
+<div id="s6" class="clip scene " data-start="20" data-duration="5" data-track-index="1">
+  <div class="cam" id="s6cam" style="transform-origin:540px 800px">
+    <div id="s6frozen">
+  <svg class="bg" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1920" fill="#1F5FE0"/>
+  <path d="M0,1060 h1080 v400 h-1080z" fill="#1747B8" opacity=".0"/>
+  <g transform="translate(60,700) scale(1.3)">
+  <path d="M0,60 a45,45 0 0 1 60,-42 a62,62 0 0 1 118,-6 a50,50 0 0 1 82,48 z" fill="#C9D8F5"/>
+  <path d="M0,60 a45,45 0 0 1 60,-42 a62,62 0 0 1 118,-6 a50,50 0 0 1 60,20 a70,40 0 0 0 -90,6 a60,40 0 0 0 -100,10 a50,30 0 0 0 -48,14 z" fill="#FFFFFF"/>
+</g><g transform="translate(720,1040) scale(1.1)">
+  <path d="M0,60 a45,45 0 0 1 60,-42 a62,62 0 0 1 118,-6 a50,50 0 0 1 82,48 z" fill="#C9D8F5"/>
+  <path d="M0,60 a45,45 0 0 1 60,-42 a62,62 0 0 1 118,-6 a50,50 0 0 1 60,20 a70,40 0 0 0 -90,6 a60,40 0 0 0 -100,10 a50,30 0 0 0 -48,14 z" fill="#FFFFFF"/>
+</g>
+  <g fill="#1747B8"><path d="M-40,1380 L160,1120 L300,1260 L420,1160 L600,1380 Z"/></g>
+  <rect y="1368" width="1080" height="560" fill="#F1DFB0"/>
+  <rect y="1368" width="1080" height="46" fill="#FBF0D2"/>
+  <rect y="1414" width="1080" height="14" fill="#DCC386"/>
+</svg>
+  <div id="s6pig" class="act" style="left:60px;top:900px;width:640px;transform-origin:50% 100%"><svg viewBox="0 0 700 520" xmlns="http://www.w3.org/2000/svg">
+  <path d="M588,250 q54,-30 44,-70 q-34,-14 -40,18 q-4,26 24,24" fill="none" stroke="#DB6584" stroke-width="14" stroke-linecap="round"/>
+  <rect x="210" y="380" width="56" height="120" rx="20" fill="#DB6584"/><rect x="210" y="472" width="56" height="30" rx="10" fill="#121B45"/><rect x="290" y="380" width="56" height="120" rx="20" fill="#F78FA9"/><rect x="290" y="472" width="56" height="30" rx="10" fill="#121B45"/><rect x="440" y="380" width="56" height="120" rx="20" fill="#DB6584"/><rect x="440" y="472" width="56" height="30" rx="10" fill="#121B45"/><rect x="520" y="380" width="56" height="120" rx="20" fill="#F78FA9"/><rect x="520" y="472" width="56" height="30" rx="10" fill="#121B45"/>
+  <clipPath id="pb"><ellipse cx="380" cy="290" rx="232" ry="150"/></clipPath>
+  <ellipse cx="380" cy="290" rx="232" ry="150" fill="#DB6584"/>
+  <g clip-path="url(#pb)"><ellipse cx="366" cy="262" rx="236" ry="150" fill="#F78FA9"/></g>
+  <ellipse cx="318" cy="158" rx="46" ry="16" fill="#FFC2D2"/>
+  <path d="M282,150 v-30 M300,146 v-36 M320,144 v-40 M340,146 v-34 M358,150 v-28" stroke="#4A2A1A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M96,150 L70,50 L170,110 Z" fill="#DB6584"/><path d="M190,110 L250,36 L280,140 Z" fill="#F78FA9"/>
+  <clipPath id="ph"><circle cx="180" cy="220" r="122"/></clipPath>
+  <circle cx="180" cy="220" r="122" fill="#DB6584"/><g clip-path="url(#ph)"><circle cx="168" cy="206" r="124" fill="#F78FA9"/></g>
+  <ellipse cx="236" cy="258" rx="58" ry="44" fill="#DB6584"/><ellipse cx="216" cy="256" rx="9" ry="14" fill="#121B45"/><ellipse cx="256" cy="254" rx="9" ry="14" fill="#121B45"/>
+  <circle cx="150" cy="190" r="22" fill="#fff"/><circle cx="234" cy="176" r="22" fill="#fff"/>
+  <circle cx="160" cy="188" r="11" fill="#121B45"/><circle cx="244" cy="174" r="11" fill="#121B45"/>
+  <path d="M118,158 L176,170 M204,154 L262,140" stroke="#121B45" stroke-width="12" stroke-linecap="round"/>
+  <path d="M150,306 q26,-18 52,0" fill="none" stroke="#121B45" stroke-width="9" stroke-linecap="round"/>
+</svg></div>
+  <div id="s6brush" class="act" style="left:520px;top:700px;width:500px;transform:rotate(-14deg)"><svg viewBox="0 0 460 110" xmlns="http://www.w3.org/2000/svg">
+  <rect x="318" y="0" width="15" height="60" rx="6" fill="#4A2A1A"/><rect x="338" y="4" width="15" height="60" rx="6" fill="#6B3A22"/><rect x="358" y="0" width="15" height="60" rx="6" fill="#4A2A1A"/><rect x="378" y="4" width="15" height="60" rx="6" fill="#6B3A22"/><rect x="398" y="0" width="15" height="60" rx="6" fill="#4A2A1A"/><rect x="418" y="4" width="15" height="60" rx="6" fill="#6B3A22"/>
+  <rect x="0" y="52" width="460" height="48" rx="24" fill="#B8862E"/><rect x="0" y="52" width="460" height="34" rx="17" fill="#E8BC5E"/>
+  <path d="M120,52 v48 M250,52 v48" stroke="#B8862E" stroke-width="7"/>
+  <path d="M300,62 h150" stroke="#E5303C" stroke-width="12" stroke-linecap="round"/>
+</svg></div></div>
+    <div id="s6grey"></div><div id="s6dim"></div>
+    <div id="s6pause"><i></i><i></i></div>
+    <div class="hl" id="s6hl" style="top:286px">
+      <div class="tag" id="s6a">But many of them had</div>
+      <div class="xl yellow" id="s6b">BETTER</div>
+      <div class="l3 white" id="s6c">teeth than</div>
+      <div class="xl2" id="s6d"><span>YOU</span></div>
+    </div>
+    <div id="s6gigi" class="act" style="left:440px;top:1050px;width:420px;transform-origin:50% 100%"><svg viewBox="-190 -280 380 310" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="gc2"><path d="M-92,-120 C-104,-205 -52,-240 0,-218 C52,-240 104,-205 92,-120 C88,-72 82,-40 72,-6 C63,24 35,24 28,-10 C22,-40 10,-56 0,-56 C-10,-56 -22,-40 -28,-10 C-35,24 -63,24 -72,-6 C-82,-40 -88,-72 -92,-120 Z"/></clipPath></defs>
+    <ellipse cx="6" cy="14" rx="96" ry="14" fill="#121B45" opacity=".22"/>
+    <path d="M-92,-120 C-104,-205 -52,-240 0,-218 C52,-240 104,-205 92,-120 C88,-72 82,-40 72,-6 C63,24 35,24 28,-10 C22,-40 10,-56 0,-56 C-10,-56 -22,-40 -28,-10 C-35,24 -63,24 -72,-6 C-82,-40 -88,-72 -92,-120 Z" fill="#C9D8F5"/>
+    <g clip-path="url(#gc2)"><path d="M-92,-120 C-104,-205 -52,-240 0,-218 C52,-240 104,-205 92,-120 C88,-72 82,-40 72,-6 C63,24 35,24 28,-10 C22,-40 10,-56 0,-56 C-10,-56 -22,-40 -28,-10 C-35,24 -63,24 -72,-6 C-82,-40 -88,-72 -92,-120 Z" fill="#fff" transform="translate(-20,-8)"/>
+      <path d="M-70,-190 q14,-22 40,-24" fill="none" stroke="#C9D8F5" stroke-width="0"/></g>
+    <g class="gf gf-smug" ><ellipse cx="-36" cy="-142" rx="16" ry="20" fill="#121B45"/><rect x="-58" y="-168" width="44" height="24" fill="#fff"/><path d="M-58,-144 h44" stroke="#121B45" stroke-width="8" stroke-linecap="round"/><circle cx="-31" cy="-135" r="5" fill="#fff"/><ellipse cx="36" cy="-142" rx="16" ry="20" fill="#121B45"/><rect x="14" y="-168" width="44" height="24" fill="#fff"/><path d="M14,-144 h44" stroke="#121B45" stroke-width="8" stroke-linecap="round"/><circle cx="41" cy="-135" r="5" fill="#fff"/><path d="M-58,-180 h38 M18,-190 q20,-10 40,2" fill="none" stroke="#121B45" stroke-width="9" stroke-linecap="round"/><path d="M-16,-96 Q10,-84 28,-106" fill="none" stroke="#121B45" stroke-width="9" stroke-linecap="round"/>
+    <ellipse cx="-62" cy="-112" rx="15" ry="9" fill="#FF9DB0" opacity=".85"/><ellipse cx="62" cy="-112" rx="15" ry="9" fill="#FF9DB0" opacity=".85"/>
+    <path d="M86,-107 Q134,-87 92,-57" fill="none" stroke="#9FB4E8" stroke-width="22" stroke-linecap="round"/>
+     <path d="M86,-112 Q134,-92 92,-62" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/>
+     <circle cx="94" cy="-58" r="19" fill="#9FB4E8"/><circle cx="91" cy="-63" r="17" fill="#fff"/><path d="M-84,-106 L-150,-52" stroke="#9FB4E8" stroke-width="30" stroke-linecap="round"/>
+       <path d="M-84,-112 L-150,-60" stroke="#fff" stroke-width="28" stroke-linecap="round"/>
+       <path d="M-150,-40 L-214,22" stroke="#9FB4E8" stroke-width="40" stroke-linecap="round"/>
+       <circle cx="-150" cy="-46" r="50" fill="#9FB4E8"/><circle cx="-155" cy="-54" r="46" fill="#fff"/>
+       <path d="M-158,-52 L-218,10" stroke="#fff" stroke-width="38" stroke-linecap="round"/>
+       <path d="M-128,-30 q-4,20 -24,22 M-112,-50 q2,10 -6,18" fill="none" stroke="#C9D8F5" stroke-width="8" stroke-linecap="round"/></g></svg></div>
+  </div></div>
+<div id="s8" class="clip scene dark" data-start="31" data-duration="3" data-track-index="1">
+  <div class="cam" id="s8cam" style="transform-origin:540px 1000px">
+    <svg class="bg" viewBox="0 0 1080 1920"><rect width="1080" height="1920" fill="#0A0E2A"/>
+      <g id="s8light"><path d="M420,-40 L660,-40 L1010,1400 L70,1400 Z" fill="#3B4CC0" opacity=".42"/>
+      <path d="M470,-40 L610,-40 L860,1400 L220,1400 Z" fill="#6C7BFF" opacity=".28"/>
+      <ellipse cx="540" cy="1400" rx="470" ry="74" fill="#5767E8"/><ellipse cx="540" cy="1400" rx="320" ry="46" fill="#8C98FF"/></g>
+    </svg>
+    <div id="s8sugar" class="act" style="left:200px;top:640px;width:680px;transform-origin:50% 100%"><svg viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg">
+  <path d="M300,96 L96,0 L140,210 L20,700 L580,700 L460,210 L504,0 Z" fill="#E5303C"/>
+  <path d="M300,96 L190,60 L210,240 L150,700 L450,700 L390,240 L410,60 Z" fill="#B01E2E"/>
+  <rect x="196" y="590" width="80" height="60" rx="18" fill="#121B45"/><rect x="324" y="590" width="80" height="60" rx="18" fill="#121B45"/>
+  <path d="M150,250 L210,180 L500,180 L440,250 Z" fill="#fff"/>
+  <path d="M440,250 L500,180 L500,500 L440,570 Z" fill="#9FB4E8"/>
+  <rect x="150" y="250" width="290" height="320" rx="14" fill="#EEF3FF"/>
+  <path d="M150,470 h290 v86 a14,14 0 0 1 -14,14 h-262 a14,14 0 0 1 -14,-14 z" fill="#C9D8F5"/>
+  <path d="M190,281 l3,6 l6,3 l-6,3 l-3,6 l-3,-6 l-6,-3 l6,-3z" fill="#fff" stroke="#9FB4E8" stroke-width="1.5"/><path d="M404,291 l3,6 l6,3 l-6,3 l-3,6 l-3,-6 l-6,-3 l6,-3z" fill="#fff" stroke="#9FB4E8" stroke-width="1.5"/><path d="M180,421 l3,6 l6,3 l-6,3 l-3,6 l-3,-6 l-6,-3 l6,-3z" fill="#fff" stroke="#9FB4E8" stroke-width="1.5"/><path d="M410,437 l3,6 l6,3 l-6,3 l-3,6 l-3,-6 l-6,-3 l6,-3z" fill="#fff" stroke="#9FB4E8" stroke-width="1.5"/><path d="M300,259 l3,6 l6,3 l-6,3 l-3,6 l-3,-6 l-6,-3 l6,-3z" fill="#fff" stroke="#9FB4E8" stroke-width="1.5"/><path d="M250,205 l3,6 l6,3 l-6,3 l-3,6 l-3,-6 l-6,-3 l6,-3z" fill="#fff" stroke="#9FB4E8" stroke-width="1.5"/><path d="M400,197 l3,6 l6,3 l-6,3 l-3,6 l-3,-6 l-6,-3 l6,-3z" fill="#fff" stroke="#9FB4E8" stroke-width="1.5"/><path d="M472,291 l3,6 l6,3 l-6,3 l-3,6 l-3,-6 l-6,-3 l6,-3z" fill="#fff" stroke="#9FB4E8" stroke-width="1.5"/><path d="M468,411 l3,6 l6,3 l-6,3 l-3,6 l-3,-6 l-6,-3 l6,-3z" fill="#fff" stroke="#9FB4E8" stroke-width="1.5"/>
+  <ellipse cx="236" cy="392" rx="32" ry="30" fill="#121B45"/><ellipse cx="354" cy="392" rx="32" ry="30" fill="#121B45"/>
+  <circle cx="244" cy="398" r="11" fill="#FF4FA3"/><circle cx="346" cy="398" r="11" fill="#FF4FA3"/>
+  <path d="M178,318 L286,366 L282,398 L174,352 Z" fill="#121B45"/><path d="M412,318 L304,366 L308,398 L416,352 Z" fill="#121B45"/>
+  <path d="M206,452 Q295,548 384,452 Q295,486 206,452 Z" fill="#121B45"/>
+  <path d="M236,466 l14,20 l14,-14 M326,472 l14,14 l14,-20" fill="#fff"/>
+  <circle cx="300" cy="226" r="0" fill="#F8B62B"/>
+  <path d="M150,300 q-70,30 -60,110" fill="none" stroke="#C9D8F5" stroke-width="26" stroke-linecap="round"/><circle cx="92" cy="416" r="26" fill="#fff"/>
+  <path d="M440,300 q70,30 60,110" fill="none" stroke="#9FB4E8" stroke-width="26" stroke-linecap="round"/><circle cx="498" cy="416" r="26" fill="#C9D8F5"/>
+</svg></div>
+    <div id="s8gigi" class="act" style="left:40px;top:1200px;width:210px;transform-origin:50% 100%"><svg viewBox="-190 -280 380 310" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="gc3"><path d="M-92,-120 C-104,-205 -52,-240 0,-218 C52,-240 104,-205 92,-120 C88,-72 82,-40 72,-6 C63,24 35,24 28,-10 C22,-40 10,-56 0,-56 C-10,-56 -22,-40 -28,-10 C-35,24 -63,24 -72,-6 C-82,-40 -88,-72 -92,-120 Z"/></clipPath></defs>
+    <ellipse cx="6" cy="14" rx="96" ry="14" fill="#121B45" opacity=".22"/>
+    <path d="M-92,-120 C-104,-205 -52,-240 0,-218 C52,-240 104,-205 92,-120 C88,-72 82,-40 72,-6 C63,24 35,24 28,-10 C22,-40 10,-56 0,-56 C-10,-56 -22,-40 -28,-10 C-35,24 -63,24 -72,-6 C-82,-40 -88,-72 -92,-120 Z" fill="#C9D8F5"/>
+    <g clip-path="url(#gc3)"><path d="M-92,-120 C-104,-205 -52,-240 0,-218 C52,-240 104,-205 92,-120 C88,-72 82,-40 72,-6 C63,24 35,24 28,-10 C22,-40 10,-56 0,-56 C-10,-56 -22,-40 -28,-10 C-35,24 -63,24 -72,-6 C-82,-40 -88,-72 -92,-120 Z" fill="#fff" transform="translate(-20,-8)"/>
+      <path d="M-70,-190 q14,-22 40,-24" fill="none" stroke="#C9D8F5" stroke-width="0"/></g>
+    <g class="gf gf-scared" ><circle cx="-36" cy="-142" r="28" fill="#121B45"/><circle cx="-36" cy="-142" r="21" fill="#fff"/><circle cx="-28" cy="-148" r="9" fill="#121B45"/><circle cx="36" cy="-142" r="28" fill="#121B45"/><circle cx="36" cy="-142" r="21" fill="#fff"/><circle cx="44" cy="-148" r="9" fill="#121B45"/><path d="M-60,-178 L-20,-192 M20,-192 L60,-178" stroke="#121B45" stroke-width="9" stroke-linecap="round"/><path d="M-30,-92 l10,-9 l10,9 l10,-9 l10,9 l10,-9 l10,9" fill="none" stroke="#121B45" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <ellipse cx="-62" cy="-112" rx="15" ry="9" fill="#FF9DB0" opacity=".85"/><ellipse cx="62" cy="-112" rx="15" ry="9" fill="#FF9DB0" opacity=".85"/>
+    <path d="M96,-214 q14,22 0,34 q-14,-12 0,-34z" fill="#7FD3FF"/><path d="M-86,-95 Q-120,-55 -66,-79" fill="none" stroke="#9FB4E8" stroke-width="22" stroke-linecap="round"/>
+     <path d="M-86,-100 Q-120,-60 -66,-84" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/>
+     <circle cx="-64" cy="-80" r="19" fill="#9FB4E8"/><circle cx="-67" cy="-85" r="17" fill="#fff"/><path d="M86,-95 Q120,-55 66,-79" fill="none" stroke="#9FB4E8" stroke-width="22" stroke-linecap="round"/>
+     <path d="M86,-100 Q120,-60 66,-84" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/>
+     <circle cx="68" cy="-80" r="19" fill="#9FB4E8"/><circle cx="65" cy="-85" r="17" fill="#fff"/></g></svg></div>
+  </div>
+  <div id="s8flash"></div>
+  <div class="hl" id="s8hl" style="top:250px"><div class="xxl" id="s8t">SUGAR</div></div></div>
+<div id="ticker" class="clip" data-start="7" data-duration="53.000" data-track-index="3">
+  <div id="tpill"><b class="tri l"></b><div id="twin"><div id="tstrip"><div class="trow">3000 BC</div><div class="trow">50 BC</div><div class="trow">640 AD</div><div class="trow">100 AD</div><div class="trow">1200s</div><div class="trow">1100 AD</div><div class="trow">1400s</div><div class="trow">1300s</div><div class="trow">1650s</div><div class="trow">1000 AD</div><div class="trow">1900s</div><div class="trow">30,000 BC</div><div class="trow">1500s</div><div class="trow">8000 BC</div><div class="trow">1700s</div><div class="trow">1800s</div><div class="trow">2600 BC</div><div class="trow">900 BC</div><div class="trow">TODAY</div><div class="trow">50 BC</div><div class="trow">640 AD</div><div class="trow">15,000 YEARS AGO</div><div class="trow">1200s</div><div class="trow">1100 AD</div><div class="trow">TODAY</div></div></div><b class="tri r"></b></div></div>
+<div id="subs" class="clip" data-start="0" data-duration="60" data-track-index="4"><div class="chunk" id="ck0"><span id="w0_0">Ancient</span> <span id="w0_1">Romans</span> <span id="w0_2">brushed</span></div><div class="chunk" id="ck1"><span id="w1_0">their</span> <span id="w1_1">teeth</span> <span id="w1_2">with</span></div><div class="chunk" id="ck2"><span id="w2_0">pee.</span> <span id="w2_1">And</span> <span id="w2_2">not</span></div><div class="chunk" id="ck3"><span id="w3_0">just</span> <span id="w3_1">any</span> <span id="w3_2">pee.</span></div><div class="chunk" id="ck4"><span id="w4_0">They</span> <span id="w4_1">imported</span> <span id="w4_2">it</span></div><div class="chunk" id="ck5"><span id="w5_0">from</span> <span id="w5_1">Portugal,</span></div><div class="chunk" id="ck6"><span id="w6_0">because</span> <span id="w6_1">it</span> <span id="w6_2">was</span></div><div class="chunk" id="ck7"><span id="w7_0">stronger.</span> <span id="w7_1">Egyptians</span> <span id="w7_2">scrubbed</span></div><div class="chunk" id="ck8"><span id="w8_0">with</span> <span id="w8_1">ox</span> <span id="w8_2">hoof</span></div><div class="chunk" id="ck9"><span id="w9_0">ashes</span> <span id="w9_1">and</span> <span id="w9_2">crushed</span></div><div class="chunk" id="ck10"><span id="w10_0">eggshells.</span> <span id="w10_1">Greeks</span> <span id="w10_2">and</span></div><div class="chunk" id="ck11"><span id="w11_0">Romans?</span> <span id="w11_1">Crushed</span> <span id="w11_2">bones</span></div><div class="chunk" id="ck12"><span id="w12_0">and</span> <span id="w12_1">oyster</span> <span id="w12_2">shells.</span></div><div class="chunk" id="ck13"><span id="w13_0">And</span> <span id="w13_1">the</span> <span id="w13_2">first</span></div><div class="chunk" id="ck14"><span id="w14_0">bristle</span> <span id="w14_1">toothbrush?</span></div><div class="chunk" id="ck15"><span id="w15_0">Hair</span> <span id="w15_1">from</span> <span id="w15_2">a</span></div><div class="chunk" id="ck16"><span id="w16_0">pig's</span> <span id="w16_1">neck.</span></div><div class="chunk" id="ck17"><span id="w17_0">But</span> <span id="w17_1">here's</span> <span id="w17_2">the</span></div><div class="chunk" id="ck18"><span id="w18_0">crazy</span> <span id="w18_1">part.</span></div><div class="chunk" id="ck19"><span id="w19_0">A</span> <span id="w19_1">lot</span> <span id="w19_2">of</span></div><div class="chunk" id="ck20"><span id="w20_0">them</span> <span id="w20_1">had</span> <span id="w20_2">better</span></div><div class="chunk" id="ck21"><span id="w21_0">teeth</span> <span id="w21_1">than</span> <span id="w21_2">you.</span></div><div class="chunk" id="ck22"><span id="w22_0">Skeletons</span> <span id="w22_1">from</span> <span id="w22_2">medieval</span></div><div class="chunk" id="ck23"><span id="w23_0">Norway,</span> <span id="w23_1">a</span> <span id="w23_2">thousand</span></div><div class="chunk" id="ck24"><span id="w24_0">years</span> <span id="w24_1">ago.</span></div><div class="chunk" id="ck25"><span id="w25_0">Worn</span> <span id="w25_1">down,</span></div><div class="chunk" id="ck26"><span id="w26_0">but</span> <span id="w26_1">almost</span> <span id="w26_2">no</span></div><div class="chunk" id="ck27"><span id="w27_0">cavities.</span> <span id="w27_1">So</span> <span id="w27_2">what</span></div><div class="chunk" id="ck28"><span id="w28_0">changed?</span> <span id="w28_1">Sugar.</span></div><div class="chunk" id="ck29"><span id="w29_0">Cavities</span> <span id="w29_1">started</span> <span id="w29_2">with</span></div><div class="chunk" id="ck30"><span id="w30_0">the</span> <span id="w30_1">rich.</span></div><div class="chunk" id="ck31"><span id="w31_0">Queen</span> <span id="w31_1">Elizabeth</span> <span id="w31_2">the</span></div><div class="chunk" id="ck32"><span id="w32_0">First</span> <span id="w32_1">loved</span> <span id="w32_2">marzipan,</span></div><div class="chunk" id="ck33"><span id="w33_0">and</span> <span id="w33_1">her</span> <span id="w33_2">teeth</span></div><div class="chunk" id="ck34"><span id="w34_0">paid</span> <span id="w34_1">the</span> <span id="w34_2">price.</span></div><div class="chunk" id="ck35"><span id="w35_0">Then</span> <span id="w35_1">sugar</span> <span id="w35_2">got</span></div><div class="chunk" id="ck36"><span id="w36_0">cheap,</span> <span id="w36_1">and</span> <span id="w36_2">everyone's</span></div><div class="chunk" id="ck37"><span id="w37_0">teeth</span> <span id="w37_1">went</span> <span id="w37_2">downhill.</span></div><div class="chunk" id="ck38"><span id="w38_0">But</span> <span id="w38_1">not</span> <span id="w38_2">every</span></div><div class="chunk" id="ck39"><span id="w39_0">ancient</span> <span id="w39_1">smile</span> <span id="w39_2">was</span></div><div class="chunk" id="ck40"><span id="w40_0">perfect.</span> <span id="w40_1">One</span> <span id="w40_2">Stone</span></div><div class="chunk" id="ck41"><span id="w41_0">Age</span> <span id="w41_1">group</span> <span id="w41_2">ate</span></div><div class="chunk" id="ck42"><span id="w42_0">so</span> <span id="w42_1">many</span> <span id="w42_2">acorns,</span></div><div class="chunk" id="ck43"><span id="w43_0">almost</span> <span id="w43_1">all</span> <span id="w43_2">of</span></div><div class="chunk" id="ck44"><span id="w44_0">them</span> <span id="w44_1">had</span> <span id="w44_2">rotten</span></div><div class="chunk" id="ck45"><span id="w45_0">teeth.</span> <span id="w45_1">So</span> <span id="w45_2">yes,</span></div><div class="chunk" id="ck46"><span id="w46_0">keep</span> <span id="w46_1">brushing.</span></div><div class="chunk" id="ck47"><span id="w47_0">Toothpaste</span> <span id="w47_1">helps.</span></div><div class="chunk" id="ck48"><span id="w48_0">But</span> <span id="w48_1">the</span> <span id="w48_2">real</span></div><div class="chunk" id="ck49"><span id="w49_0">villain</span> <span id="w49_1">was</span> <span id="w49_2">always</span></div><div class="chunk" id="ck50"><span id="w50_0">sugar.</span> <span id="w50_1">Would</span> <span id="w50_2">you</span></div><div class="chunk" id="ck51"><span id="w51_0">have</span> <span id="w51_1">survived</span> <span id="w51_2">Roman</span></div><div class="chunk" id="ck52"><span id="w52_0">dentistry?</span> <span id="w52_1">Tell</span> <span id="w52_2">me</span></div><div class="chunk" id="ck53"><span id="w53_0">in</span> <span id="w53_1">the</span> <span id="w53_2">comments.</span></div></div>
+<svg id="grain" class="clip" data-start="0" data-duration="60" data-track-index="5" viewBox="0 0 1080 1920"><filter id="gn"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 .35  0 0 0 0 .3  0 0 0 0 .2  0 0 0 1.4 -.35"/></filter><rect width="1080" height="1920" filter="url(#gn)"/></svg>
+</div>
+<script>window.T={"s":[0,3,7,11,15,20,25,31,34,41,45,52,57],"end":60,"subs":[[[0.12,0.575],[0.575,0.98],[0.98,1.435]],[[1.435,1.789],[1.789,2.143],[2.143,2.447]],[[2.447,2.75],[3.12,3.315],[3.315,3.51]],[[3.51,3.745],[3.745,3.94],[3.94,4.174]],[[4.174,4.408],[4.408,4.798],[4.798,4.955]],[[4.955,5.189],[5.189,5.618]],[[5.618,5.969],[5.969,6.125],[6.125,6.321]],[[6.321,6.75],[7.12,7.69],[7.69,8.209]],[[8.209,8.52],[8.52,8.728],[8.728,9.039]],[[9.039,9.402],[9.402,9.661],[9.661,10.128]],[[10.128,10.75],[11.12,11.604],[11.604,11.906]],[[11.906,12.451],[12.451,12.995],[12.995,13.419]],[[13.419,13.721],[13.721,14.205],[14.205,14.75]],[[15.12,15.46],[15.46,15.801],[15.801,16.277]],[[16.277,16.89],[16.89,17.775]],[[17.775,18.184],[18.184,18.593],[18.593,18.797]],[[18.797,19.273],[19.273,19.75]],[[20.12,20.402],[20.402,20.854],[20.854,21.136]],[[21.136,21.532],[21.532,21.927]],[[21.927,22.096],[22.096,22.379],[22.379,22.604]],[[22.604,22.943],[22.943,23.225],[23.225,23.677]],[[23.677,24.072],[24.072,24.411],[24.411,24.75]],[[25.12,25.721],[25.721,26.049],[26.049,26.596]],[[26.596,27.088],[27.088,27.252],[27.252,27.798]],[[27.798,28.181],[28.181,28.509]],[[28.509,28.837],[28.837,29.22]],[[29.22,29.493],[29.493,29.93],[29.93,30.149]],[[30.149,30.75],[31.12,31.496],[31.496,32.059]],[[32.059,32.999],[32.999,33.75]],[[34.12,34.668],[34.668,35.161],[35.161,35.49]],[[35.49,35.764],[35.764,36.147]],[[36.147,36.531],[36.531,37.134],[37.134,37.408]],[[37.408,37.791],[37.791,38.175],[38.175,38.777]],[[38.777,39.051],[39.051,39.325],[39.325,39.709]],[[39.709,40.038],[40.038,40.312],[40.312,40.75]],[[41.12,41.445],[41.445,41.824],[41.824,42.095]],[[42.095,42.529],[42.529,42.8],[42.8,43.45]],[[43.45,43.829],[43.829,44.154],[44.154,44.75]],[[45.12,45.357],[45.357,45.594],[45.594,45.925]],[[45.925,46.351],[46.351,46.683],[46.683,46.92]],[[46.92,47.393],[47.393,47.63],[47.63,47.961]],[[47.961,48.198],[48.198,48.53],[48.53,48.767]],[[48.767,48.956],[48.956,49.24],[49.24,49.666]],[[49.666,50.045],[50.045,50.282],[50.282,50.471]],[[50.471,50.756],[50.756,50.992],[50.992,51.371]],[[51.371,51.75],[52.12,52.319],[52.319,52.618]],[[52.618,52.917],[52.917,53.464]],[[53.464,54.062],[54.062,54.46]],[[54.46,54.709],[54.709,54.958],[54.958,55.256]],[[55.256,55.705],[55.705,55.953],[55.953,56.352]],[[56.352,56.75],[57.12,null],[null,null]],[[null,null],[null,null],[null,null]],[[null,null],[null,null],[null,null]],[[null,null],[null,null],[null,null]]],"years":["3000 BC","100 AD","1400s","1000 AD","1500s","1800s","TODAY","15,000 YEARS AGO","TODAY"],"mint":"#3DDC97"};</script>
+<script>// Timeline for the toothpaste reel. Inlined into index.html by build.mjs.
+// T.s[i] = start of scene i+1 (seconds), so everything follows timing.json.
+(function () {
+  const tl = gsap.timeline({ paused: true });
+  const S = T.s;
+  const has = (id) => document.getElementById(id);
+  const face = (actor, name, t) => {
+    tl.set("#" + actor + " .gf", { opacity: 0 }, t);
+    tl.set("#" + actor + " .gf-" + name, { opacity: 1 }, t);
+  };
+  // gentle life so nothing sits still
+  const bob = (sel, t0, t1, amt, per) => {
+    const n = Math.max(1, Math.round((t1 - t0) / per));
+    for (let i = 0; i < n; i++)
+      tl.to(sel, { y: (i % 2 ? 0 : -amt), duration: (t1 - t0) / n, ease: "sine.inOut" }, t0 + i * (t1 - t0) / n);
+  };
+
+  // ---------- Scene 1: hook ----------
+  if (has("s1")) {
+    const a = S[0], d = S[1] - S[0];
+    tl.fromTo("#s1hl", { scale: 1.22 }, { scale: 1, duration: 0.3, ease: "back.out(2.4)" }, a);
+    tl.fromTo("#s1roman", { y: 90 }, { y: 0, duration: 0.35, ease: "back.out(1.8)" }, a);
+    tl.fromTo("#s1arm", { rotation: -34 }, { rotation: -34, duration: 0.01 }, a);
+    tl.to("#s1arm", { rotation: 0, duration: 0.28, ease: "power3.in" }, a + 0.55);
+    tl.set("#wet", { opacity: 0 }, a);
+    tl.set("#wet", { opacity: 1 }, a + 0.83);
+    // splash
+    [[-130, -210], [-60, -290], [10, -320], [80, -270], [150, -190]].forEach(([x, y], i) => {
+      tl.fromTo("#s1drops i:nth-child(" + (i + 1) + ")", { x: 0, y: 0, opacity: 1, scale: 1 },
+        { x: x, y: y, duration: 0.3, ease: "power2.out" }, a + 0.83);
+      tl.to("#s1drops i:nth-child(" + (i + 1) + ")", { y: y + 330, opacity: 0, duration: 0.4, ease: "power2.in" }, a + 1.13);
+    });
+    // punch zoom on the jar
+    tl.to("#s1cam", { scale: 1.42, duration: 0.22, ease: "power4.out" }, a + 0.85);
+    tl.fromTo("#s1jar", { rotation: 0 }, { rotation: 4, duration: 0.08, yoyo: true, repeat: 3, ease: "sine.inOut" }, a + 0.85);
+    tl.to("#s1cam", { scale: 1.5, duration: 0.6, ease: "none" }, a + 1.07);
+    tl.to("#s1cam", { scale: 1, duration: 0.3, ease: "power3.inOut" }, a + 1.67);
+    tl.to("#s1arm", { rotation: -22, duration: 0.3, ease: "back.out(2)" }, a + 1.5);
+    tl.fromTo("#s1pee", { scale: 1 }, { scale: 1.18, duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out" }, a + 0.85);
+    // Gigi pops in, horrified, then gags
+    tl.fromTo("#s1gigi", { y: 900, rotation: 12 }, { y: 0, rotation: 0, duration: 0.3, ease: "back.out(2.2)" }, a + 1.75);
+    face("s1gigi", "shock", a);
+    face("s1gigi", "gag", a + 2.3);
+    tl.fromTo("#s1gigi", { x: 0 }, { x: -12, duration: 0.07, yoyo: true, repeat: 7, ease: "sine.inOut" }, a + 2.3);
+    tl.to("#s1gigi", { scaleY: 0.9, scaleX: 1.08, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, a + 2.3);
+    bob("#s1roman", a + 0.4, a + d, 10, 0.5);
+  }
+
+  // ---------- Scene 5: pig hair brush (animated fully in the next pass) ----------
+  if (has("s5")) {
+    const a = S[4], d = S[5] - S[4];
+    tl.fromTo("#s5hl", { scale: 1.2 }, { scale: 1, duration: 0.3, ease: "back.out(2.4)" }, a);
+    tl.fromTo("#s5pig", { x: -700 }, { x: 0, duration: 0.4, ease: "back.out(1.4)" }, a);
+    tl.fromTo("#s5brush", { y: -500 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, a + 1.6);
+    bob("#s5pig", a + 0.5, a + d, 8, 0.45);
+  }
+
+  // ---------- Scene 6: the twist ----------
+  if (has("s6")) {
+    const a = S[5], d = S[6] - S[5];
+    tl.fromTo("#s6grey", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, a + 0.05);
+    tl.fromTo("#s6dim", { opacity: 0 }, { opacity: 0.3, duration: 0.4, ease: "power2.out" }, a + 0.1);
+    tl.fromTo("#s6cam", { scale: 1.06, rotation: -1.2 }, { scale: 1, rotation: 0, duration: 0.18, ease: "power4.out" }, a);
+    tl.fromTo("#s6pause", { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(3)" }, a + 0.05);
+    tl.to("#s6pause", { opacity: 0, duration: 0.01 }, a + 0.55);
+    tl.to("#s6pause", { opacity: 1, duration: 0.01 }, a + 0.8);
+    tl.fromTo("#s6gigi", { y: 760, rotation: -20 }, { y: 0, rotation: 0, duration: 0.4, ease: "back.out(1.7)" }, a + 0.5);
+    ["#s6a", "#s6b", "#s6c", "#s6d"].forEach((s, i) => {
+      const t = a + [1.9, 2.5, 3.0, 3.4][i] * d / 5;
+      tl.fromTo(s, { opacity: 0, scale: 1.7 }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2.2)" }, t);
+    });
+    tl.fromTo("#s6gigi", { scale: 1 }, { scale: 1.12, duration: 0.2, ease: "back.out(3)" }, a + 3.4 * d / 5);
+    tl.to("#s6cam", { scale: 1.09, duration: d - 0.6, ease: "none" }, a + 0.6);
+    bob("#s6gigi", a + 1, a + 3.2 * d / 5, 12, 0.5);
+  }
+
+  // ---------- Scene 8: the villain ----------
+  if (has("s8")) {
+    const a = S[7], d = S[8] - S[7];
+    const hit = a + d * 0.6; // "Sugar." lands here; re-timed to the real word later
+    tl.fromTo("#s8light", { opacity: 0 }, { opacity: 0.25, duration: 0.3 }, a);
+    tl.fromTo("#s8light", { rotation: -7, transformOrigin: "540px 0px" }, { rotation: 7, duration: hit - a - 0.5, ease: "sine.inOut" }, a);
+    tl.to("#s8light", { rotation: 0, opacity: 1, duration: 0.12, ease: "power4.out" }, hit);
+    tl.fromTo("#s8sugar", { y: 1000 }, { y: 880, duration: hit - a - 0.5, ease: "power1.out" }, a);
+    tl.to("#s8sugar", { y: 0, duration: 0.2, ease: "back.out(2.6)" }, hit);
+    tl.fromTo("#s8sugar", { scale: 1 }, { scale: 1.07, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, hit + 0.2);
+    tl.fromTo("#s8t", { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, hit);
+    tl.fromTo("#s8flash", { opacity: 0 }, { opacity: 0.9, duration: 0.04 }, hit);
+    tl.to("#s8flash", { opacity: 0, duration: 0.3, ease: "power2.out" }, hit + 0.04);
+    tl.fromTo("#s8cam", { scale: 1 }, { scale: 1.1, duration: 0.1, yoyo: true, repeat: 1, ease: "power2.out" }, hit);
+    tl.fromTo("#s8gigi", { y: 300 }, { y: 0, duration: 0.25, ease: "back.out(2)" }, a + 0.3);
+    tl.fromTo("#s8gigi", { x: 0 }, { x: 8, duration: 0.06, yoyo: true, repeat: Math.floor((d - 0.6) / 0.06), ease: "sine.inOut" }, a + 0.6);
+  }
+
+  // ---------- year ticker ----------
+  if (has("ticker")) {
+    const ROW = 92, W = { "3000 BC": 400, "100 AD": 360, "1400s": 330, "1000 AD": 380, "1500s": 330, "1800s": 330, "TODAY": 330, "15,000 YEARS AGO": 640 };
+    // when each label lands: scene 3,4,5,7,9,10(1800s),10(today),11,12
+    const at = [S[2], S[3], S[4], S[6], S[8], S[9], S[9] + (S[10] - S[9]) * 0.45, S[10], S[11]];
+    tl.fromTo("#tpill", { y: -320 }, { y: 0, duration: 0.3, ease: "back.out(1.8)" }, S[2]);
+    T.years.forEach((yr, i) => {
+      const w = W[yr];
+      if (i === 0) { tl.set("#tstrip", { y: 0 }, 0); tl.set("#tpill", { width: w, marginLeft: -w / 2 }, 0); return; }
+      tl.to("#tstrip", { y: -ROW * 3 * i, duration: 0.45, ease: "back.out(1.3)" }, at[i]);
+      tl.to("#tpill", { width: w, marginLeft: -w / 2, duration: 0.3, ease: "power2.out" }, at[i] + 0.1);
+      tl.fromTo("#tpill", { scale: 1 }, { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, at[i] + 0.38);
+    });
+    // dim for the dark villain scene
+    tl.to("#ticker", { opacity: 0, duration: 0.2 }, S[7]);
+    tl.to("#ticker", { opacity: 1, duration: 0.2 }, S[8]);
+  }
+
+  // ---------- subtitles ----------
+  T.subs.forEach((chunk, i) => {
+    const c = "#ck" + i, start = chunk[0][0], end = T.subs[i + 1] ? Math.min(T.subs[i + 1][0][0], chunk[chunk.length - 1][1] + 0.5) : chunk[chunk.length - 1][1] + 0.4;
+    tl.set(c, { opacity: 1 }, start);
+    tl.set(c, { opacity: 0 }, end);
+    chunk.forEach(([s, e], j) => {
+      const w = "#w" + i + "_" + j;
+      tl.set(w, { color: T.mint, scale: 1.1 }, s);
+      if (chunk[j + 1]) tl.set(w, { color: "#ffffff", scale: 1 }, chunk[j + 1][0]);
+    });
+  });
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>
