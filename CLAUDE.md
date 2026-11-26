@@ -119,6 +119,30 @@ sits on a different Vercel account from the portfolio and is **not** linked to G
   booking form sends nothing and says so. Keep `noindex`.
 - Never use a real clinic's name, photos, reviews or contact details on it.
 
+## Body pain site (`demos/body/`, "Sore Spot")
+
+A separate site: a 3D body people spin and tap where it hurts, then get tips, short animated
+movement clips and a follow-along routine for that spot. Plain files, no build step, its own
+look (dark stage, paper panel, Bricolage Grotesque + Figtree), not the batik design. Deployed
+as its own Vercel project `sore-spot` (https://sore-spot.vercel.app), on the same Vercel
+account as the dental demo and deployed the same way: **it does not redeploy on push**. Its
+build step copies `demos/body/` from `main`, so after pushing, redeploy that project.
+
+- `rig.js` draws the figure from simple shapes (no downloaded model) and poses it. `moves.js`
+  holds every movement as key poses (the conventions are at the top of the file). `demo.js`
+  renders the clips. `content.js` holds all the words. `app.js` is the page. three.js is
+  vendored in `vendor/` (MIT licence file beside it).
+- `dev.html` is a contact sheet of every movement for checking poses
+  (`dev.html?m=catCow,bridge&even=1&n=6&big=1`). It is not deployed.
+- The clips are animated by the same figure, not filmed. Do not call them filmed video.
+- Health copy rules: general information only, no diagnosis, no promised results, no
+  medicine or dosage advice. Every area keeps its "Get it checked if" warning signs. Chest and
+  stomach show warning signs and no exercises. Keep the "not medical advice" notes.
+- The owner has not had the tips or movements reviewed by a physiotherapist or doctor yet.
+  Say so if asked, and do not add a "reviewed by" claim without one.
+- `noindex` stays on until the owner decides to make it public for search.
+- Use relative file paths in the page.
+
 ## Brand rules (owner's decisions, follow strictly)
 
 This repository is **public**. Keep private details out of it: no legal names, no other

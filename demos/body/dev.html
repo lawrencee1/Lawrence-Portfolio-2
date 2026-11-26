@@ -1,0 +1,18 @@
+<!doctype html><meta charset="utf-8"><title>dev sheet</title>
+<style>body{margin:0;background:#0b0f18;color:#cfd6e4;font:12px sans-serif}.row{display:flex;gap:4px;margin:4px;align-items:center}.row b{width:110px}canvas{width:240px;height:180px;border-radius:6px}</style>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+<div id="out"></div>
+<script type="module">
+import { DemoStage } from './demo.js';
+import { MOVES } from './moves.js';
+const q = new URLSearchParams(location.search), only = q.get('m'), n = +(q.get('n') || 5), big = q.get('big');
+const st = new DemoStage(800, 600), out = document.getElementById('out');
+for (const id in MOVES) {
+  if (only && !only.split(',').includes(id)) continue;
+  const row = document.createElement('div'); row.className = 'row'; row.innerHTML = `<b>${id}</b>`; out.append(row);
+  const m = MOVES[id], times = m.keys.map(k => k[0]).slice(0, -1);
+  const ts = q.get('even') ? [...Array(n)].map((_, i) => m.dur * i / n) : times.slice(0, n);
+  for (const t of ts) { const c = document.createElement('canvas'); c.width = big ? 800 : 480; c.height = big ? 600 : 360; if (big) { c.style.width = '400px'; c.style.height = '300px'; } row.append(c); st.draw(id, t + 0.001, c); }
+}
+document.title = 'ready';
+</script>
