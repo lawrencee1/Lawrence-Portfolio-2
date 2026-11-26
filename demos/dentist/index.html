@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teduh Dental Studio | Gentle dentistry in Bali (demo site)</title>
+<meta name="description" content="Demo website for a fictional dental clinic: treatments, clear prices, dentists and online booking.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0f4c45">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tooth" viewBox="0 0 100 110"><path d="M50 16C40 6 14 4 12 30c-2 18 8 28 10 46 2 16 4 28 12 28s6-26 16-26 8 26 16 26 10-12 12-28c2-18 12-28 10-46C86 4 60 6 50 16z"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.1c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-1.8-.1-3-1-5-3.900-5.400-4.500-.4-.6-1.300-1.800-1.300-3.200 0-1.300.7-2 1-2.300.200-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.5l.9 2.100c.1.2.1.4 0 .6l-.7 1c-.2.2-.3.4-.1.7.9 1.500 2 2.400 3.500 3.100.3.1.5.1.6-.1l.9-1.100c.2-.3.4-.2.7-.1l2 .9c.300.2.500.200.500.4.1.200.1.600-.1 1.100z"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.500 4.500L19 7.500"/></symbol>
+</svg>
+
+<p class="demo-strip">Demo website for a fictional clinic. Built by <a href="https://lawrencenathan.vercel.app/clinics">Lawrence Nathan</a> to show what your clinic's site could look like.</p>
+
+<header class="nav" id="nav">
+  <a class="logo" href="#top" aria-label="Teduh Dental Studio, home">
+    <svg class="logo-mark" aria-hidden="true"><use href="#tooth"/></svg>
+    <span>Teduh <em>Dental Studio</em></span>
+  </a>
+  <nav aria-label="Main">
+    <a href="#treatments">Treatments</a>
+    <a href="#prices">Prices</a>
+    <a href="#dentists">Dentists</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#visit">Visit</a>
+  </nav>
+  <a class="btn btn-solid nav-cta" href="#book">Book a visit</a>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-copy">
+    <p class="kicker"><span class="dot"></span>Open today until 8 pm</p>
+    <h1>Gentle dentistry, <em>clear prices.</em></h1>
+    <p class="lead">A calm dental studio in Canggu. We explain everything first, show you the price before we start, and never rush you out of the chair.</p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="#book">Book a visit</a>
+      <a class="btn btn-ghost" href="#prices">See prices</a>
+    </div>
+    <ul class="chips">
+      <li><svg aria-hidden="true"><use href="#check"/></svg>Open 7 days</li>
+      <li><svg aria-hidden="true"><use href="#check"/></svg>English and Bahasa</li>
+      <li><svg aria-hidden="true"><use href="#check"/></svg>Price shown before treatment</li>
+    </ul>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="arch">
+      <span class="ring r1"></span><span class="ring r2"></span>
+      <svg class="big-tooth"><use href="#tooth"/></svg>
+      <svg class="sp s1"><use href="#spark"/></svg>
+      <svg class="sp s2"><use href="#spark"/></svg>
+      <svg class="sp s3"><use href="#spark"/></svg>
+    </div>
+    <div class="float f1"><small>Next free slot</small><b id="next-slot">Today, 3:30 pm</b></div>
+    <div class="float f2"><span class="stars">★★★★★</span><small>Sample rating</small></div>
+    <div class="float f3"><svg><use href="#check"/></svg><span>Tools sterilised<br>for every patient</span></div>
+  </div>
+</section>
+
+<section class="band" aria-label="Why patients choose us">
+  <div><b>20 min</b><span>average wait for emergencies</span></div>
+  <div><b>3</b><span>dentists, one specialist</span></div>
+  <div><b>0</b><span>surprise costs, ever</span></div>
+  <div><b>7 days</b><span>open 9 am to 8 pm</span></div>
+</section>
+
+<section class="sec" id="treatments">
+  <div class="sec-head">
+    <p class="kicker">Treatments</p>
+    <h2>Everything your smile needs, <em>in one place.</em></h2>
+  </div>
+  <div class="cards">
+    <article class="card"><span class="ic">01</span><h3>Check-up and clean</h3><p>A full exam, scaling and polish. We show you photos of what we find.</p><p class="from">From Rp 450k</p></article>
+    <article class="card"><span class="ic">02</span><h3>Whitening</h3><p>In-chair whitening in about an hour, with a take-home kit to keep the shade.</p><p class="from">From Rp 2.8m</p></article>
+    <article class="card"><span class="ic">03</span><h3>Fillings</h3><p>Tooth-coloured fillings, numbed properly so you feel pressure and nothing else.</p><p class="from">From Rp 550k</p></article>
+    <article class="card"><span class="ic">04</span><h3>Clear aligners</h3><p>Straighten teeth without braces. A 3D scan shows the plan before you commit.</p><p class="from">Free first scan</p></article>
+    <article class="card"><span class="ic">05</span><h3>Implants and crowns</h3><p>Replace a missing or broken tooth, planned with a specialist from day one.</p><p class="from">Quote after exam</p></article>
+    <article class="card"><span class="ic">06</span><h3>Kids' dentistry</h3><p>Slow first visits with no drills, so children leave without being scared.</p><p class="from">From Rp 350k</p></article>
+  </div>
+  <a class="urgent" href="#book">
+    <span class="pulse"></span>
+    <span><b>Toothache or a broken tooth?</b> We keep same-day slots free for emergencies.</span>
+    <span class="arrow">Book now →</span>
+  </a>
+</section>
+
+<section class="sec steps-sec">
+  <div class="sec-head">
+    <p class="kicker">Your first visit</p>
+    <h2>No surprises, <em>step by step.</em></h2>
+  </div>
+  <ol class="steps">
+    <li><span>1</span><h3>Talk first</h3><p>Ten minutes with your dentist about what bothers you, before anyone looks in your mouth.</p></li>
+    <li><span>2</span><h3>Exam and photos</h3><p>We check every tooth and show you the pictures on screen, in plain words.</p></li>
+    <li><span>3</span><h3>Written plan and price</h3><p>You get the options and the exact cost. You decide what happens next, and when.</p></li>
+  </ol>
+</section>
+
+<section class="sec prices" id="prices">
+  <div class="sec-head">
+    <p class="kicker">Prices</p>
+    <h2>The price list, <em>out in the open.</em></h2>
+    <p class="sub">Sample prices in rupiah. Your written quote comes before any treatment starts.</p>
+  </div>
+  <div class="price-grid">
+    <table>
+      <caption>Everyday care</caption>
+      <tr><th scope="row">Consultation and exam</th><td>Rp 250,000</td></tr>
+      <tr><th scope="row">Scaling and polish</th><td>Rp 450,000</td></tr>
+      <tr><th scope="row">Dental X-ray (per tooth)</th><td>Rp 150,000</td></tr>
+      <tr><th scope="row">Tooth-coloured filling</th><td>Rp 550,000</td></tr>
+      <tr><th scope="row">Simple extraction</th><td>Rp 600,000</td></tr>
+      <tr><th scope="row">Kids' check-up</th><td>Rp 350,000</td></tr>
+    </table>
+    <table>
+      <caption>Smile and repair</caption>
+      <tr><th scope="row">In-chair whitening</th><td>Rp 2,800,000</td></tr>
+      <tr><th scope="row">Root canal (front tooth)</th><td>Rp 2,200,000</td></tr>
+      <tr><th scope="row">Porcelain crown</th><td>Rp 4,500,000</td></tr>
+      <tr><th scope="row">Porcelain veneer (per tooth)</th><td>Rp 5,500,000</td></tr>
+      <tr><th scope="row">Clear aligners</th><td>from Rp 28,000,000</td></tr>
+      <tr><th scope="row">Dental implant with crown</th><td>from Rp 18,000,000</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="sec" id="dentists">
+  <div class="sec-head">
+    <p class="kicker">Dentists</p>
+    <h2>The people who'll <em>look after you.</em></h2>
+  </div>
+  <div class="team">
+    <article><div class="avatar a1">AP</div><h3>drg. Ayu Paramitha</h3><p class="role">General and cosmetic dentistry</p><p>Founder. Fourteen years in practice and known for the slowest, gentlest injections in the building.</p></article>
+    <article><div class="avatar a2">KW</div><h3>drg. Komang Wirya, Sp.Ort</h3><p class="role">Orthodontist</p><p>Plans every aligner and braces case. Will show you the 3D result before you spend anything.</p></article>
+    <article><div class="avatar a3">CH</div><h3>drg. Clara Hartanto</h3><p class="role">Kids and family dentistry</p><p>Sees patients from age two. Parents stay in the room, and the first visit is just a look around.</p></article>
+  </div>
+</section>
+
+<section class="sec reviews" id="reviews">
+  <div class="sec-head">
+    <p class="kicker">Reviews</p>
+    <h2>What patients <em>would say.</em></h2>
+    <p class="sub">Sample reviews for this demo. A real site shows your real Google reviews here.</p>
+  </div>
+  <div class="quotes">
+    <figure><span class="stars">★★★★★</span><blockquote>I put off the dentist for six years. They talked me through all of it and I felt nothing. Booked my clean for next time before I left.</blockquote><figcaption>Sample patient, check-up and filling</figcaption></figure>
+    <figure><span class="stars">★★★★★</span><blockquote>Cracked a tooth surfing on Sunday morning, in the chair by noon. The price they quoted was the price I paid.</blockquote><figcaption>Sample patient, emergency visit</figcaption></figure>
+    <figure><span class="stars">★★★★★</span><blockquote>My daughter asked when she can go back. I did not think I would ever write that about a dentist.</blockquote><figcaption>Sample parent, kids' check-up</figcaption></figure>
+  </div>
+</section>
+
+<section class="sec book-sec" id="book">
+  <div class="book-copy">
+    <p class="kicker light">Book a visit</p>
+    <h2>Pick a time. <em>We'll confirm on WhatsApp.</em></h2>
+    <p>Takes under a minute. No payment needed to book, and you can move or cancel your visit any time.</p>
+    <ul class="ticks">
+      <li><svg aria-hidden="true"><use href="#check"/></svg>Reply within 15 minutes during opening hours</li>
+      <li><svg aria-hidden="true"><use href="#check"/></svg>Same-day slots for emergencies</li>
+      <li><svg aria-hidden="true"><use href="#check"/></svg>Insurance receipts on request</li>
+    </ul>
+  </div>
+  <form class="booker" id="booker" novalidate>
+    <fieldset>
+      <legend>1. What do you need?</legend>
+      <div class="opts" id="b-treat">
+        <label><input type="radio" name="treat" value="Check-up and clean" checked><span>Check-up and clean</span></label>
+        <label><input type="radio" name="treat" value="Whitening"><span>Whitening</span></label>
+        <label><input type="radio" name="treat" value="Toothache or emergency"><span>Toothache or emergency</span></label>
+        <label><input type="radio" name="treat" value="Aligners consult"><span>Aligners consult</span></label>
+        <label><input type="radio" name="treat" value="Kids' check-up"><span>Kids' check-up</span></label>
+        <label><input type="radio" name="treat" value="Something else"><span>Something else</span></label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>2. Which day?</legend>
+      <div class="opts days" id="b-days"></div>
+    </fieldset>
+    <fieldset>
+      <legend>3. What time?</legend>
+      <div class="opts times" id="b-times"></div>
+    </fieldset>
+    <label class="field"><span>Your name</span><input type="text" name="name" autocomplete="name" placeholder="e.g. Sarah" required></label>
+    <button class="btn btn-solid btn-wide" type="submit">Request this time</button>
+    <p class="form-note" id="b-note" role="status">You'll get a WhatsApp message to confirm.</p>
+  </form>
+</section>
+
+<section class="sec faq-sec">
+  <div class="sec-head">
+    <p class="kicker">Questions</p>
+    <h2>Good to know <em>before you come.</em></h2>
+  </div>
+  <div class="faq">
+    <details open><summary>Will it hurt?</summary><p>We numb the area fully and wait until it works. You can raise a hand at any time and we stop.</p></details>
+    <details><summary>Do I pay before treatment?</summary><p>No. You pay after each visit by card, QRIS, transfer or cash. Larger plans can be split across visits.</p></details>
+    <details><summary>Can I use travel or health insurance?</summary><p>We give you an itemised receipt and treatment report in English for your insurer to reimburse.</p></details>
+    <details><summary>I'm only in Bali for a week. Is that enough?</summary><p>For cleaning, whitening, fillings and most crowns, yes. Tell us your dates and we plan around them.</p></details>
+    <details><summary>Where do I park?</summary><p>There is free parking for cars and scooters in front of the studio.</p></details>
+  </div>
+</section>
+
+<section class="sec visit" id="visit">
+  <div class="visit-card">
+    <p class="kicker">Visit</p>
+    <h2>Find us in <em>Canggu.</em></h2>
+    <dl>
+      <div><dt>Address</dt><dd>Jl. Pantai Teduh No. 18, Canggu, Bali<br><small>Sample address for this demo</small></dd></div>
+      <div><dt>Hours</dt><dd>Every day, 9 am to 8 pm</dd></div>
+      <div><dt>WhatsApp</dt><dd>+62 800-0000-0000 <small>(sample number)</small></dd></div>
+      <div><dt>Email</dt><dd>hello@teduhdental.example</dd></div>
+    </dl>
+    <a class="btn btn-solid" href="#book">Book a visit</a>
+  </div>
+  <div class="map" role="img" aria-label="Illustrated map showing the studio near the beach road">
+    <svg viewBox="0 0 600 440" preserveAspectRatio="xMidYMid slice">
+      <rect width="600" height="440" fill="#e4efe9"/>
+      <path d="M0 330c90-30 170 20 270-6s210-50 330-20v136H0z" fill="#cfe6ee"/>
+      <path d="M0 318c90-30 170 20 270-6s210-50 330-20" fill="none" stroke="#f6ecd6" stroke-width="16"/>
+      <g fill="none" stroke="#fff" stroke-linecap="round">
+        <path d="M-10 120h620" stroke-width="20"/><path d="M190-10v300" stroke-width="16"/>
+        <path d="M430-10c0 120-30 180 20 290" stroke-width="16"/><path d="M-10 220c160-10 320 10 620-20" stroke-width="12"/>
+      </g>
+      <g fill="#d3e4da"><rect x="30" y="20" width="130" height="74" rx="10"/><rect x="222" y="20" width="176" height="74" rx="10"/><rect x="470" y="30" width="110" height="64" rx="10"/><rect x="30" y="146" width="130" height="52" rx="10"/><rect x="222" y="146" width="170" height="48" rx="10"/></g>
+      <g fill="#b7d3c2"><circle cx="520" cy="160" r="16"/><circle cx="548" cy="172" r="12"/><circle cx="92" cy="258" r="14"/><circle cx="300" cy="262" r="12"/></g>
+      <g transform="translate(312 172)"><circle r="46" fill="#0f4c45" opacity=".12"><animate attributeName="r" values="30;52;30" dur="3s" repeatCount="indefinite"/></circle><path d="M0 14c-18-22-26-34-26-46a26 26 0 0 1 52 0c0 12-8 24-26 46z" fill="#0f4c45" transform="translate(0 -4)"/><circle cy="-36" r="10" fill="#fff"/></g>
+      <text x="344" y="150" font-family="DM Sans, sans-serif" font-size="15" font-weight="600" fill="#0f4c45">Teduh Dental Studio</text>
+      <text x="20" y="412" font-family="DM Sans, sans-serif" font-size="12" letter-spacing="3" fill="#5a8ea0">BEACH</text>
+    </svg>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <a class="logo" href="#top"><svg class="logo-mark" aria-hidden="true"><use href="#tooth"/></svg><span>Teduh <em>Dental Studio</em></span></a>
+  <p>Teduh Dental Studio is not a real clinic. Names, prices, reviews and contact details on this page are samples.</p>
+  <p>Website demo by <a href="https://lawrencenathan.vercel.app/clinics">Lawrence Nathan</a>. Want one for your clinic? <a href="https://lawrencenathan.vercel.app/clinics">See how it works</a>.</p>
+</footer>
+
+<div class="bar" id="bar">
+  <a class="btn btn-solid" href="#book">Book a visit</a>
+  <a class="btn btn-wa" href="#book" aria-label="Message on WhatsApp"><svg aria-hidden="true"><use href="#wa"/></svg></a>
+</div>
+
+<dialog id="done">
+  <svg class="done-ic" aria-hidden="true"><use href="#check"/></svg>
+  <h3>Request ready</h3>
+  <p id="done-text"></p>
+  <p class="done-demo">This is a demo, so nothing was sent. On a real clinic site this opens WhatsApp with the message filled in, or goes straight into your booking system.</p>
+  <button class="btn btn-solid" id="done-close" type="button">Close</button>
+</dialog>
+
+<script src="main.js" defer></script>
+</body>
+</html>

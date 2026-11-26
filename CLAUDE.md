@@ -96,6 +96,18 @@ All pages live in this repository and on the same Vercel project.
   when the owner gives one that matches the evidence (months, or the one video with its view
   count).
 
+## Demo clinic site (`demos/dentist/`)
+
+A separate made-up dental clinic website ("Teduh Dental Studio") that shows clinics what
+their own site could look like. Plain `index.html` + `styles.css` + `main.js`, no build step,
+its own look (teal and cream, Fraunces + DM Sans), not the batik design. It is deployed as
+its own Vercel project with `demos/dentist` as the root directory.
+
+- Everything on it is fictional and must stay labelled: the top strip and footer say it is a
+  demo, reviews and ratings say "sample", the address, phone and email are samples, and the
+  booking form sends nothing and says so. Keep `noindex`.
+- Never use a real clinic's name, photos, reviews or contact details on it.
+
 ## Brand rules (owner's decisions, follow strictly)
 
 This repository is **public**. Keep private details out of it: no legal names, no other
