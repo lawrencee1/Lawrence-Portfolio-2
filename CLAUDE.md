@@ -104,8 +104,12 @@ its own look (teal and cream, Fraunces + DM Sans), not the batik design. It is d
 its own Vercel project, `teduh-dental-demo` (https://teduh-dental-demo.vercel.app), which
 sits on a different Vercel account from the portfolio and is **not** linked to GitHub.
 
+- `/tour` (`tour.html`, `tour.css`, `tour.js`) is a swipe-through 3D tour: front door,
+  reception, smile menu, treatment room, results wall, booking. The isometric rooms are drawn
+  by the small kit at the top of `tour.js` (original artwork; do not copy reference images).
+  The before and after smiles are illustrations and must stay labelled as such.
 - It does not redeploy on push. Its build step downloads `index.html`, `styles.css`,
-  `main.js` and `favicon.svg` from `demos/dentist/` on `main`, so after pushing a change,
+  `main.js`, `favicon.svg` and the three tour files from `demos/dentist/` on `main`, so after pushing a change,
   redeploy that project (Vercel dashboard "Redeploy", or the Vercel connector). A new file
   must also be added to the download list in the project's `build.sh`.
 - Use relative file paths in the page (`styles.css`, not `/styles.css`).

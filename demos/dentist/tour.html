@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Walk through Teduh Dental Studio | 3D tour (demo site)</title>
+<meta name="description" content="Swipe through a fictional dental studio: the front door, reception, the smile menu, the treatment room and the results wall.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0f4c45">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tour.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tooth" viewBox="0 0 100 110"><path d="M50 16C40 6 14 4 12 30c-2 18 8 28 10 46 2 16 4 28 12 28s6-26 16-26 8 26 16 26 10-12 12-28c2-18 12-28 10-46C86 4 60 6 50 16z"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></symbol>
+</svg>
+
+<header class="top">
+  <a class="logo" href="index.html" aria-label="Teduh Dental Studio, main site">
+    <svg class="logo-mark" aria-hidden="true"><use href="#tooth"/></svg><span>Teduh <em>Dental Studio</em></span>
+  </a>
+  <span class="demo-tag">Demo, fictional clinic</span>
+  <a class="btn btn-solid top-cta" href="index.html#book">Book a visit</a>
+</header>
+
+<main class="stage" id="stage" aria-live="polite">
+
+  <section class="scene" data-name="Front door">
+    <div class="art" data-art="outside"></div>
+    <div class="cap">
+      <p class="kicker">Step 1 of 6</p>
+      <h1>Come in. <em>Have a look around.</em></h1>
+      <p>This is the whole visit, from the front door to the smile you leave with. Swipe, or tap the door.</p>
+      <button class="btn btn-solid" data-go="1" type="button">Walk in →</button>
+    </div>
+  </section>
+
+  <section class="scene" data-name="Reception">
+    <div class="art" data-art="reception"></div>
+    <div class="cap">
+      <p class="kicker">Step 2 of 6 · Reception</p>
+      <h2>Two minutes to check in, <em>then a seat.</em></h2>
+      <p class="tip" data-tipbox>Tap the glowing dots in the room to see how it works.</p>
+      <p class="found" data-found></p>
+    </div>
+  </section>
+
+  <section class="scene scroll" data-name="Smile menu">
+    <div class="menu-wrap">
+      <div class="menu-head">
+        <p class="kicker">Step 3 of 6 · The smile menu</p>
+        <h2>Pick a smile, <em>like picking a haircut.</em></h2>
+        <p>Every treatment is on the wall with its time and its price. Tap one.</p>
+      </div>
+      <div class="menu" id="menu" role="list"></div>
+      <aside class="detail" id="detail" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section class="scene" data-name="Treatment room">
+    <div class="art" data-art="room"></div>
+    <div class="cap">
+      <p class="kicker">Step 4 of 6 · Treatment room</p>
+      <h2>Nothing happens <em>until you say so.</em></h2>
+      <p class="tip" data-tipbox>Tap the glowing dots to see what keeps it safe and easy.</p>
+      <p class="found" data-found></p>
+    </div>
+  </section>
+
+  <section class="scene scroll" data-name="Results wall">
+    <div class="res-wrap">
+      <div class="menu-head">
+        <p class="kicker">Step 5 of 6 · The results wall</p>
+        <h2>Drag to see <em>before and after.</em></h2>
+        <p>Illustrations for this demo, not patient photos. A real clinic shows its own cases here, with consent.</p>
+      </div>
+      <div class="results" id="results"></div>
+    </div>
+  </section>
+
+  <section class="scene" data-name="Your turn">
+    <div class="art end-art" data-art="end"></div>
+    <div class="cap">
+      <p class="kicker">Step 6 of 6</p>
+      <h2>That's the whole visit. <em>Your turn.</em></h2>
+      <ul class="ticks">
+        <li>We talk first, then look</li>
+        <li>You see the price before anything starts</li>
+        <li>Raise a hand and we stop</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="index.html#book">Book a visit</a>
+        <button class="btn btn-ghost" data-go="0" type="button">Walk through again</button>
+      </div>
+      <p class="fine">Teduh Dental Studio is not a real clinic. Website demo by <a href="https://lawrencenathan.vercel.app/clinics">Lawrence Nathan</a>.</p>
+    </div>
+  </section>
+</main>
+
+<nav class="dock" aria-label="Tour steps">
+  <button class="arrow" id="prev" type="button" aria-label="Previous room">←</button>
+  <ol class="dots" id="dots"></ol>
+  <button class="arrow" id="next" type="button" aria-label="Next room">→</button>
+</nav>
+<p class="swipe-hint" id="hint">Swipe to walk in <span>→</span></p>
+
+<noscript><p class="nojs">This tour needs JavaScript. <a href="index.html">Go to the main site</a>.</p></noscript>
+<script src="tour.js" defer></script>
+</body>
+</html>
