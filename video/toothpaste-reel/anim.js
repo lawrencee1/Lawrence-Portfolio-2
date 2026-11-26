@@ -263,7 +263,7 @@
     tl.fromTo("#s11lab", { opacity: 0, x: -300 }, { opacity: 1, x: 0, duration: 0.22, ease: "back.out(2)" }, cue("acorns"));
     bob("#s11man", cue("one") + 0.2, rot, 10, 0.4);
     for (let i = 0; i < 6; i++) tl.set(gsap.utils.toArray("#s11man .rot")[i], { opacity: 1 }, rot + i * 0.13);
-    tl.fromTo("#s11cam", { scale: 1, transformOrigin: "540px 1090px" }, { scale: 1.2, duration: 0.9, ease: "power2.out" }, rot);
+    tl.fromTo("#s11cam", { scale: 1, transformOrigin: "540px 1090px" }, { scale: 1.12, duration: 0.9, ease: "power2.out" }, rot);
     face("s11gigi", "meh", a); face("s11gigi", "shock", rot + 0.2);
     squash("#s11gigi", rot + 0.2);
     bob("#s11gigi", a + 0.6, rot, 6, 0.5);

@@ -476,7 +476,7 @@ const scene11 = clip("s11", 10, `
     ${act("s11man", 340, 690, 600, "0 0 600 800", cavemanSvg, "transform-origin:50% 100%")}
     ${ledgeFront()}
     <div id="s11acorns">${[[90, 1300], [170, 1304], [250, 1300], [130, 1244], [210, 1246], [170, 1190]].map(([x, y], i) => act("s11a" + i, x, y, 80, "0 0 80 104", acornSvg, `transform:rotate(${[-12, 8, 14, -6, 10, 0][i]}deg)`)).join("")}</div>
-    <div class="tag sm" id="s11lab" style="position:absolute;left:20px;top:1110px;transform:rotate(-6deg)">too many acorns</div>
+    <div class="tag sm" id="s11lab" style="position:absolute;left:70px;top:1110px;transform:rotate(-6deg)">too many acorns</div>
     ${smallGigi("s11gigi", 840, { meh: { eyes: "smug", mouth: "flat", brows: "smug", arms: "hip" }, shock: { eyes: "wide", mouth: "shock", brows: "up", arms: "cheeks" } }, 200)}
   </div>
   <div class="hl" id="s11hl" style="top:262px"><div class="tag" id="s11a">Plot twist:</div><div class="l6 white" id="s11b">NOT EVERY ANCIENT</div><div class="l6 white" id="s11c">SMILE WAS PERFECT</div></div>`, "dark");
